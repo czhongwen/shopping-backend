@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongwen.shopping.dao.IOrderDetailDAO">
+
+    <sql id="select-pram-column">
+        o_id,p_id,od_num
+    </sql>
+
+    <resultMap id="orderDetail" type="com.zhongwen.shopping.bean.OrderDetailBean">
+        <result property="orderId" column="o_id" javaType="Integer"/>
+        <result property="productId" column="p_id" javaType="Integer"/>
+        <result property="productNum" column="od_num" javaType="Integer"/>
+    </resultMap>
+
+    <sql id="set">
+        <if test="orderId != null">
+            o_id = #{orderId}
+        </if>
+        <if test="productId != null">
+            p_id = #{productId}
+        </if>
+        <if test="productNum != null">
+            od_num = #{productNum}
+        </if>
+    </sql>
+
+    <select id="getOrderDetailList" resultMap="orderDetail" parameterType="Integer">
+        SELECT
+        <include refid="select-pram-column"/>
+        FROM order_detail
+        WHERE o_id = #{orderId}
+    </select>
+
+    <insert id="addOrderDetail" parameterType="List">
+        INSERT INTO order_detail
+        (o_id, p_id, od_num)
+        VALUES
+        <foreach collection="list" item="orderDetail" index="index" separator=",">
+            (#{orderDetail.orderId, javaType = Integer},
+            #{orderDetail.productId, javaType = Integer},
+            #{orderDetail.productNum, javaType = Integer})
+        </foreach>
+    </insert>
+ </mapper>
