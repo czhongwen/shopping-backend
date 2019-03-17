@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongwen.shopping.dao.IProductInfoDAO">
+
+    <sql id="select-pram-column">
+        p_id,p_name,p_info,id_id,r_date,p_detail,p_index,p_pic1,
+        p_pic2,p_pic3,p_pic4,p_pic5,p_color,p_tupical,p_price,p_num,p_discount
+    </sql>
+
+    <resultMap id="productInfo" type="com.zhongwen.shopping.bean.ProductInfoBean">
+        <id property="id" column="p_id" javaType="Integer"/>
+        <result property="name" column="p_name" javaType="String"/>
+        <result property="info" column="p_info" javaType="String"/>
+        <result property="indexDetailId" column="id_id" javaType="Integer"/>
+        <result property="date" column="r_date" javaType="String"/>
+        <result property="detail" column="p_detail" javaType="Integer"/>
+        <result property="index" column="p_index" javaType="Integer"/>
+        <result property="image1" column="p_pic1" javaType="String"/>
+        <result property="image2" column="p_pic2" javaType="String"/>
+        <result property="image3" column="p_pic3" javaType="String"/>
+        <result property="image4" column="p_pic4" javaType="String"/>
+        <result property="image5" column="p_pic5" javaType="String"/>
+        <result property="color" column="p_color" javaType="String"/>
+        <result property="tupical" column="p_tupical" javaType="String"/>
+        <result property="price" column="p_price" javaType="Integer"/>
+        <result property="num" column="p_num" javaType="Integer"/>
+        <result property="discount" column="p_discount" javaType="Integer"/>
+    </resultMap>
+
+    <sql id="set">
+        <if test="name != null">
+            p_name = #{name},
+        </if>
+        <if test="info != null">
+            p_info = #{info},
+        </if>
+        <if test="indexDetailId != null">
+            id_id = #{indexDetailId},
+        </if>
+        <if test="date != null">
+            r_date = #{date},
+        </if>
+        <if test="detail != null">
+            p_detail = #{detail},
+        </if>
+        <if test="index != null">
+            p_index = #{index},
+        </if>
+        <if test="image1 != null">
+            p_pic1 = #{image1},
+        </if>
+        <if test="image2 != null">
+            p_pic2 = #{image2},
+        </if>
+        <if test="image3 != null">
+            p_pic3 = #{image3},
+        </if>
+        <if test="image4 != null">
+            p_pic4 = #{image4},
+        </if>
+        <if test="image5 != null">
+            p_pic5 = #{image5},
+        </if>
+        <if test="color != null">
+            p_color = #{color},
+        </if>
+        <if test="tupical != null">
+            p_tupical = #{tupical},
+        </if>
+        <if test="price != null">
+            p_price = #{price},
+        </if>
+        <if test="num != null">
+            p_num = #{num},
+        </if>
+        <if test="discount">
+            p_discount = #{discount},
+        </if>
+    </sql>
+
+    <insert id="addProductInfo" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
+        INSERT INTO products_info
+        <set>
+            <include refid="set"/>
+        </set>
+    </insert>
+
+    <update id="updateProductInfo" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
+        UPDATE products_info
+        <set>
+            <include refid="set"/>
+        </set>
+        WHERE
+         p_id = #{id}
+    </update>
+
+    <select id="getProductInfoById" parameterType="Integer" resultMap="productInfo">
+        SELECT
+        <include refid="select-pram-column"/>
+        FROM products_info
+        WHERE p_id = #{id}
+    </select>
+
+    <select id="getProductInfoByIndexDetailId" resultMap="productInfo" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
+        SELECT
+        <include refid="select-pram-column"/>
+        FROM products_info
+        WHERE id_id = #{indexDetailId}
+        <if test="offset != null and limit != null">
+            LIMIT #{offset},#{limit}
+        </if>
+    </select>
+
+    <select id="getProductCount" resultType="Integer" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
+        SELECT count(*)
+        FROM products_info
+        WHERE id_id = #{indexDetailId}
+        <if test="offset != null and limit != null">
+            LIMIT #{offset},#{limit}
+        </if>
+    </select>
+
+    <select id="getProductNum" resultType="Integer" parameterType="Integer">
+        SELECT p_num
+        FROM products_info
+        WHERE p_id = #{id}
+    </select>
+
+    <update id="updateProductNum" parameterType="Integer">
+        UPDATE products_info
+        SET id_id = (id_id-1)
+        WHERE p_id = #{id}
+    </update>
+</mapper>
