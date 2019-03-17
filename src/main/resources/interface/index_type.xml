@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongwen.shopping.dao.IIndexTypeDAO">
+    
+    <resultMap id="indexType" type="com.zhongwen.shopping.bean.IndexTypeBean">
+        <id property="id" column="it_id" javaType="Integer"/>
+        <result property="imageUrl" column="it_image" javaType="String"/>
+        <result property="name" column="it_name" javaType="String"/>
+    </resultMap>
+
+    <sql id="set">
+        <if test="imageUrl != null">
+            it_image = #{imageUrl},
+        </if>
+        <if test="name != null">
+            it_name = #{name},
+        </if>
+    </sql>
+
+    <sql id="select-pram-column">
+        it_id,it_image,it_name
+    </sql>
+
+    <select id="getIndexTypeList" resultMap="indexType">
+        SELECT
+        <include refid="select-pram-column"/>
+        FROM index_type
+    </select>
+
+    <insert id="addIndexType" parameterType="com.zhongwen.shopping.bean.IndexTypeBean">
+        INSERT INTO Index_type
+        <set>
+            <include refid="set"/>
+        </set>
+    </insert>
+
+    <delete id="deleteIndexTypeById" parameterType="Integer">
+        DELETE FROM index_type
+        WHERE it_id = #{id}
+    </delete>
+
+    <update id="updateIndexTypeById" parameterType="com.zhongwen.shopping.bean.IndexTypeBean">
+        UPDATE index_type
+        <set>
+            <include refid="set"/>
+        </set>
+        WHERE it_id = #{id}
+    </update>
+</mapper>
