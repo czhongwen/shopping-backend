@@ -47,4 +47,11 @@
         DELETE from carts
         WHERE cartId = #{cartId}
     </delete>
+
+    <insert id="addCarts" parameterType="com.zhongwen.shopping.bean.CartInfoBean">
+        INSERT carts
+        <set>
+            <include refid="set"/>
+        </set>
+    </insert>
 </mapper>

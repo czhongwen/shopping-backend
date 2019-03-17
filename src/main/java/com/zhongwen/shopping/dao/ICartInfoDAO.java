@@ -33,4 +33,11 @@ public interface ICartInfoDAO {
      * @return
      */
     int deleteCartId(Integer cartId);
+
+    /**
+     * 增加购物车
+     * @param cartInfoBean
+     * @return
+     */
+    int addCarts(CartInfoBean cartInfoBean);
 }

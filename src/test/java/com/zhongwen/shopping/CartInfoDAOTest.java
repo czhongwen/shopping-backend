@@ -41,4 +41,13 @@ public class CartInfoDAOTest {
     public void testDelete() {
         System.out.println(cartInfoDAO.deleteCartId(334));
     }
+
+    @Test
+    public void addCarts() {
+        CartInfoBean cartInfoBean = new CartInfoBean();
+        cartInfoBean.setProductNum(520);
+        cartInfoBean.setProductId(10);
+        cartInfoBean.setOpenId("o_k4M5CkHNYRH2M7zIBHqYcqxlU4");
+        System.out.println(cartInfoDAO.addCarts(cartInfoBean));
+    }
 }
