@@ -16,16 +16,16 @@
 
     <sql id="set">
         <if test="cartId != null">
-            cratId = #{cratId},
+            cartId = #{cartId},
         </if>
         <if test="productId != null">
-            p_id = #{productId}
+            p_id = #{productId},
         </if>
         <if test="openId != null">
-            oppenid = #{openId}
+            oppenid = #{openId},
         </if>
         <if test="productNum != null">
-            p_num = #{productNum}
+            p_num = #{productNum},
         </if>
     </sql>
 
