@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb816136-4a25-4437-85dc-ce4ffda6397d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/IndexTypeBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IIndexTypeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/interface/index_type.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexTypeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/IndexDeailBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IIndexDetailDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/interface/index_detail.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexDetailTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/ShoppingApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/ShoppingApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhongwen/shopping/dao/ICartInfoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhongwen/shopping/dao/ICartInfoDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/zhongwen/shopping/CartInfoDAOTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/zhongwen/shopping/CartInfoDAOTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/zhongwen/shopping/ShoppingApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/zhongwen/shopping/ShoppingApplicationTests.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,10 +20,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/ShoppingApplication.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/IndexDeailBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="189">
+              <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+              <folding>
+                <element signature="e#394#395#0" expanded="true" />
+                <element signature="e#419#420#0" expanded="true" />
+                <element signature="e#456#457#0" expanded="true" />
+                <element signature="e#484#485#0" expanded="true" />
+                <element signature="e#523#524#0" expanded="true" />
+                <element signature="e#557#558#0" expanded="true" />
+                <element signature="e#612#613#0" expanded="true" />
+                <element signature="e#658#659#0" expanded="true" />
+                <element signature="e#689#690#0" expanded="true" />
+                <element signature="e#716#717#0" expanded="true" />
+                <element signature="e#756#757#0" expanded="true" />
+                <element signature="e#788#789#0" expanded="true" />
+                <element signature="e#823#824#0" expanded="true" />
+                <element signature="e#854#855#0" expanded="true" />
+                <element signature="e#902#903#0" expanded="true" />
+                <element signature="e#942#943#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -33,31 +49,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/interface/harvest_address.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="1" selection-start-line="1" selection-end-line="2" selection-end-column="54" />
+            <state relative-caret-position="319">
+              <caret line="41" column="32" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/CartInfoDAOTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IIndexDetailDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" selection-start-line="18" selection-start-column="15" selection-end-line="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1155#1156#0" expanded="true" />
-                <element signature="e#1191#1192#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/ICartInfoDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+            <state relative-caret-position="164">
+              <caret line="26" column="29" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,66 +70,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/interface/index_type.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+            <state relative-caret-position="60">
+              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexTypeTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/interface/index_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="46" column="76" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+            <state relative-caret-position="176">
+              <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexDetailTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#669#670#0" expanded="true" />
-                <element signature="e#971#972#0" expanded="true" />
-                <element signature="e#1007#1008#0" expanded="true" />
+                <element signature="e#917#918#0" expanded="true" />
+                <element signature="e#953#954#0" expanded="true" />
+                <element signature="e#1407#1408#0" expanded="true" />
+                <element signature="e#1443#1444#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IIndexTypeDAO.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/CartInfoDAOTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="41" column="27" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="27" />
+            <state relative-caret-position="300">
+              <caret line="20" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/interface/cart_info.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="12" column="32" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/IndexTypeBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="27" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="27" />
-              <folding>
-                <element signature="e#328#329#0" expanded="true" />
-                <element signature="e#353#354#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-                <element signature="e#418#419#0" expanded="true" />
-                <element signature="e#453#454#0" expanded="true" />
-                <element signature="e#484#485#0" expanded="true" />
-                <element signature="e#532#533#0" expanded="true" />
-                <element signature="e#572#573#0" expanded="true" />
-                <element signature="e#603#604#0" expanded="true" />
-                <element signature="e#630#631#0" expanded="true" />
-                <element signature="e#670#671#0" expanded="true" />
-                <element signature="e#702#703#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,7 +126,12 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>provice</find>
+      <find>IndexTypeId</find>
+      <find>indexTypeId</find>
     </findStrings>
+    <replaceStrings>
+      <replace>indextypeId</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -171,6 +156,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IIndexTypeDAO.java" />
         <option value="$PROJECT_DIR$/src/main/resources/interface/index_type.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexTypeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/IndexDeailBean.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexDetailTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IIndexDetailDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/interface/index_detail.xml" />
       </list>
     </option>
   </component>
@@ -305,7 +294,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552804203207" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552807366543" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -326,8 +315,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.IndexTypeTest.updateIndexTypeTest">
-    <configuration name="CartInfoDAOTest.addCarts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.IndexDetailTest.deleteIndexdetail">
+    <configuration name="IndexDetailTest.addIndexDetailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wxshopipng-backend" />
       <extension name="coverage">
         <pattern>
@@ -336,14 +325,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zhongwen.shopping" />
-      <option name="MAIN_CLASS_NAME" value="com.zhongwen.shopping.CartInfoDAOTest" />
-      <option name="METHOD_NAME" value="addCarts" />
+      <option name="MAIN_CLASS_NAME" value="com.zhongwen.shopping.IndexDetailTest" />
+      <option name="METHOD_NAME" value="addIndexDetailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IndexTypeTest.deleteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IndexDetailTest.deleteIndexdetail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wxshopipng-backend" />
       <extension name="coverage">
         <pattern>
@@ -352,14 +341,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zhongwen.shopping" />
-      <option name="MAIN_CLASS_NAME" value="com.zhongwen.shopping.IndexTypeTest" />
-      <option name="METHOD_NAME" value="deleteTest" />
+      <option name="MAIN_CLASS_NAME" value="com.zhongwen.shopping.IndexDetailTest" />
+      <option name="METHOD_NAME" value="deleteIndexdetail" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IndexTypeTest.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IndexDetailTest.getListIndexDetil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wxshopipng-backend" />
       <extension name="coverage">
         <pattern>
@@ -368,14 +357,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zhongwen.shopping" />
-      <option name="MAIN_CLASS_NAME" value="com.zhongwen.shopping.IndexTypeTest" />
-      <option name="METHOD_NAME" value="testAdd" />
+      <option name="MAIN_CLASS_NAME" value="com.zhongwen.shopping.IndexDetailTest" />
+      <option name="METHOD_NAME" value="getListIndexDetil" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IndexTypeTest.testGetList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IndexDetailTest.updateindexDetailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wxshopipng-backend" />
       <extension name="coverage">
         <pattern>
@@ -384,8 +373,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zhongwen.shopping" />
-      <option name="MAIN_CLASS_NAME" value="com.zhongwen.shopping.IndexTypeTest" />
-      <option name="METHOD_NAME" value="testGetList" />
+      <option name="MAIN_CLASS_NAME" value="com.zhongwen.shopping.IndexDetailTest" />
+      <option name="METHOD_NAME" value="updateindexDetailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -416,11 +405,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.IndexDetailTest.deleteIndexdetail" />
+        <item itemvalue="JUnit.IndexDetailTest.updateindexDetailTest" />
+        <item itemvalue="JUnit.IndexDetailTest.getListIndexDetil" />
+        <item itemvalue="JUnit.IndexDetailTest.addIndexDetailTest" />
         <item itemvalue="JUnit.IndexTypeTest.updateIndexTypeTest" />
-        <item itemvalue="JUnit.IndexTypeTest.testAdd" />
-        <item itemvalue="JUnit.IndexTypeTest.deleteTest" />
-        <item itemvalue="JUnit.IndexTypeTest.testGetList" />
-        <item itemvalue="JUnit.CartInfoDAOTest.addCarts" />
       </list>
     </recent_temporary>
   </component>
@@ -437,7 +426,7 @@
       <workItem from="1552749722604" duration="2402000" />
       <workItem from="1552752186688" duration="188000" />
       <workItem from="1552752390981" duration="1182000" />
-      <workItem from="1552753763490" duration="18526000" />
+      <workItem from="1552753763490" duration="21539000" />
     </task>
     <task id="LOCAL-00001" summary="构建项目">
       <created>1552790519204</created>
@@ -467,49 +456,56 @@
       <option name="project" value="LOCAL" />
       <updated>1552798440567</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="增加大分类接口">
+      <created>1552804275077</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1552804275077</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CartInfoDAOTest_testDelete - 2019.03.17 at 11h 00m 38s.xml">
-      <configuration name="CartInfoDAOTest.testDelete" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CartInfoDAOTest_testDelete - 2019.03.17 at 11h 01m 19s.xml">
-      <configuration name="CartInfoDAOTest.testDelete" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CartInfoDAOTest_addCarts - 2019.03.17 at 11h 11m 43s.xml">
-      <configuration name="CartInfoDAOTest.addCarts" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CartInfoDAOTest_addCarts - 2019.03.17 at 11h 12m 50s.xml">
-      <configuration name="CartInfoDAOTest.addCarts" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CartInfoDAOTest_addCarts - 2019.03.17 at 11h 13m 25s.xml">
-      <configuration name="CartInfoDAOTest.addCarts" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IndexTypeTest_testGetList - 2019.03.17 at 14h 04m 02s.xml">
-      <configuration name="IndexTypeTest.testGetList" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IndexTypeTest_testAdd - 2019.03.17 at 14h 18m 51s.xml">
-      <configuration name="IndexTypeTest.testAdd" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IndexTypeTest_testAdd - 2019.03.17 at 14h 19m 47s.xml">
-      <configuration name="IndexTypeTest.testAdd" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="IndexTypeTest_deleteTest - 2019.03.17 at 14h 22m 18s.xml">
       <configuration name="IndexTypeTest.deleteTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="IndexTypeTest_testAdd - 2019.03.17 at 14h 28m 47s.xml">
       <configuration name="IndexTypeTest.testAdd" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="IndexTypeTest_updateIndexTypeTest - 2019.03.17 at 14h 30m 00s.xml">
+      <configuration name="IndexTypeTest.updateIndexTypeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IndexDetailTest_addIndexDetailTest - 2019.03.17 at 15h 06m 12s.xml">
+      <configuration name="IndexDetailTest.addIndexDetailTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IndexDetailTest_addIndexDetailTest - 2019.03.17 at 15h 07m 24s.xml">
+      <configuration name="IndexDetailTest.addIndexDetailTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IndexDetailTest_addIndexDetailTest - 2019.03.17 at 15h 09m 43s.xml">
+      <configuration name="IndexDetailTest.addIndexDetailTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IndexDetailTest_addIndexDetailTest - 2019.03.17 at 15h 11m 56s.xml">
+      <configuration name="IndexDetailTest.addIndexDetailTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IndexDetailTest_getListIndexDetil - 2019.03.17 at 15h 14m 37s.xml">
+      <configuration name="IndexDetailTest.getListIndexDetil" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IndexDetailTest_getListIndexDetil - 2019.03.17 at 15h 15m 04s.xml">
+      <configuration name="IndexDetailTest.getListIndexDetil" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IndexDetailTest_updateindexDetailTest - 2019.03.17 at 15h 18m 15s.xml">
+      <configuration name="IndexDetailTest.updateindexDetailTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22298000" />
+    <option name="totallyTimeSpent" value="25311000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="727" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -520,7 +516,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30393702" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33700788" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.46056783" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -554,7 +550,8 @@
     <MESSAGE value="构建项目" />
     <MESSAGE value="增加购物车相关接口" />
     <MESSAGE value="增加addcarts接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加addcarts接口" />
+    <MESSAGE value="增加大分类接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加大分类接口" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/controller/TestController.java">
@@ -698,38 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/CartInfoBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="30" />
-          <folding>
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#780#781#0" expanded="true" />
-            <element signature="e#816#817#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#887#888#0" expanded="true" />
-            <element signature="e#940#941#0" expanded="true" />
-            <element signature="e#984#985#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/interface/harvest_address.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="1" selection-start-line="1" selection-end-line="2" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/interface/cart_info.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -758,18 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/CartInfoDAOTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="18" selection-start-column="15" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1191#1192#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IIndexTypeDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -780,23 +733,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/interface/index_type.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/CartInfoBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+        <state relative-caret-position="405">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="30" />
+          <folding>
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#780#781#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#887#888#0" expanded="true" />
+            <element signature="e#940#941#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexTypeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="46" column="76" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+        <state relative-caret-position="362">
+          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#669#670#0" expanded="true" />
             <element signature="e#971#972#0" expanded="true" />
             <element signature="e#1007#1008#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/interface/index_type.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/interface/harvest_address.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/CartInfoDAOTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/IndexDeailBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+          <folding>
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#484#485#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#658#659#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+            <element signature="e#823#824#0" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexDetailTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#917#918#0" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#1407#1408#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IIndexDetailDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/interface/index_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
         </state>
       </provider>
     </entry>

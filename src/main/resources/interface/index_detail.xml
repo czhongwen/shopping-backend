@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongwen.shopping.dao.IIndexDetailDAO">
+
+    <sql id="select-pram-column">
+        id_id,it_id,id_name,id_image
+    </sql>
+
+    <resultMap id="indexDetail" type="com.zhongwen.shopping.bean.IndexDeailBean">
+        <id property="id" column="id_id" javaType="Integer"/>
+        <result property="indexTypeId" column="it_id" javaType="Integer"/>
+        <result property="name" column="id_name" javaType="String"/>
+        <result property="imageUrl" column="id_image" javaType="String"/>
+    </resultMap>
+
+    <sql id="set">
+        <if test="indexTypeId != null">
+            it_id = #{indexTypeId},
+        </if>
+        <if test="name != null">
+            id_name = #{name},
+        </if>
+        <if test="imageUrl">
+            id_image = #{imageUrl},
+        </if>
+    </sql>
+
+    <select id="getIndexDetail" resultMap="indexDetail" parameterType="Integer">
+        SELECT
+        <include refid="select-pram-column"/>
+        FROM index_detail
+        where it_id = #{indexTypeId}
+    </select>
+
+    <insert id="addIndexDetail" parameterType="com.zhongwen.shopping.bean.IndexDeailBean">
+        INSERT index_detail
+        <set>
+            <include refid="set"/>
+        </set>
+    </insert>
+
+    <delete id="deleteIndexDetailById" parameterType="Integer">
+        DELETE FROM index_detail
+        WHERE id_id = #{id}
+    </delete>
+
+    <update id="updateIndexDetail" parameterType="com.zhongwen.shopping.bean.IndexDeailBean">
+        UPDATE index_detail
+        <set>
+            <include refid="set"/>
+        </set>
+        WHERE id_id = #{id}
+    </update>
+</mapper>
