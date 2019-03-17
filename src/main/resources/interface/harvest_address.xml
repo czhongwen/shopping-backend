@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongwen.shopping.dao.IAddressInfoDAO">
+
+    <resultMap id="addressInfo" type="com.zhongwen.shopping.bean.AddressInfoBean">
+        <id property="id" column="a_id" javaType="Integer"/>
+        <result property="userOpenId" column="u_oppenid" javaType="String"/>
+        <result property="name" column="a_name" javaType="String"/>
+        <result property="phone" column="a_telephone" javaType="String"/>
+        <result property="provice" column="a_provice" javaType="String"/>
+        <result property="city" column="a_city" javaType="String"/>
+        <result property="country" column="a_county" javaType="String"/>
+        <result property="detail" column="a_detail" javaType="String"/>
+        <result property="defaultStatus" column="a_default" javaType="Integer"/>
+    </resultMap>
+
+    <sql id="set">
+        <if test="name != null">
+            a_name = #{name},
+        </if>
+        <if test="phone != null">
+            a_telephone = #{phone},
+        </if>
+        <if test="provice != null ">
+            a_provice = #{provice},
+        </if>
+        <if test="city != null ">
+            a_city = #{city},
+        </if>
+        <if test="country != null">
+            a_county = #{country},
+        </if>
+        <if test="detail != null">
+            a_detail = #{detail},
+        </if>
+        <if test="defaultStatus == 0 || defaultStatus == 1 || defaultStatus == 3">
+            a_default = ${defaultStatus},
+        </if>
+    </sql>
+
+    <sql id="select-param-column">
+        a_id,u_oppenid,a_name,a_telephone,a_provice,a_city,a_county,a_detail,a_default
+    </sql>
+    <select id="getListAddInfoByOpenId" resultMap="addressInfo" parameterType="String">
+        SELECT
+        <include refid="select-param-column"/>
+        FROM address_info
+        WHERE u_oppenid = #{openId}
+        AND a_default != 3
+    </select>
+
+    <update id="updateAddressInfo" parameterType="com.zhongwen.shopping.bean.AddressInfoBean">
+        update address_info
+        <set>
+            <include refid="set"></include>
+        </set>
+        where a_id = #{id}
+    </update>
+</mapper>

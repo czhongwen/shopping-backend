@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongwen.shopping.dao.ICartInfoDAO">
+
+    <resultMap id="cartInfo" type="com.zhongwen.shopping.bean.CartInfoBean">
+        <id property="cartId" column="cartId" javaType="Integer"/>
+        <result property="productId" column="p_id" javaType="Integer"/>
+        <result property="openId" column="oppenid" javaType="String"/>
+        <result property="productNum" column="p_num" javaType="Integer"/>
+    </resultMap>
+
+    <sql id="select-param-column">
+        cartId,p_id,oppenid,p_num
+    </sql>
+
+    <sql id="set">
+        <if test="cartId != null">
+            cratId = #{cratId},
+        </if>
+        <if test="productId != null">
+            p_id = #{productId}
+        </if>
+        <if test="openId != null">
+            oppenid = #{openId}
+        </if>
+        <if test="productNum != null">
+            p_num = #{productNum}
+        </if>
+    </sql>
+
+    <select id="getCartsList" resultMap="cartInfo" parameterType="String">
+        select <include refid="select-param-column"/>
+        FROM carts
+        WHERE oppenid = #{openId}
+    </select>
+
+    <update id="updateCartInfo" parameterType="com.zhongwen.shopping.bean.CartInfoBean">
+        UPDATE carts
+        <set>
+            <include refid="set"></include>
+        </set>
+        WHERE cartId = #{cartId}
+    </update>
+    
+    <delete id="deleteCartId" parameterType="Integer" >
+        DELETE from carts
+        WHERE cartId = #{cartId}
+    </delete>
+</mapper>
