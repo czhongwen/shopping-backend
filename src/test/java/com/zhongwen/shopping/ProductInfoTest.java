@@ -1,5 +1,6 @@
 package com.zhongwen.shopping;
 
+import com.zhongwen.shopping.bean.ProductInfoBean;
 import com.zhongwen.shopping.dao.IProductInfoDAO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +25,11 @@ public class ProductInfoTest {
         System.out.println(productInfoDAO.getProductNum(110));
     }
 
-
+    @Test
+    public void getProductInfoByIdTest() {
+        ProductInfoBean productInfoBean = new ProductInfoBean();
+        productInfoBean.setIndexDetailId(1);
+        System.out.println(productInfoDAO.getProductCount(productInfoBean));
+    }
 
 }

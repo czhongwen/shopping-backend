@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongwen.shopping.dao.IOrderInfoDAO">
+
+    <sql id="select-pram-column">
+        o_id,a_id,o_date,o_status,u_oppenId
+    </sql>
+
+    <resultMap id="orderInfo" type="com.zhongwen.shopping.bean.OrderInfoBean">
+        <id property="id" column="o_id" javaType="Integer"/>
+        <result property="addressId" column="a_id" javaType="Integer"/>
+        <result property="date" column="o_date" javaType="String"/>
+        <result property="status" column="o_status" javaType="String"/>
+        <result property="openId" column="u_oppenId" javaType="String"/>
+    </resultMap>
+
+    <sql id="set">
+        <if test="addressId != null">
+            a_id = #{addressId},
+        </if>
+        <if test="date != null">
+            o_date = #{date},
+        </if>
+        <if test="status != null">
+            o_status = #{status},
+        </if>
+        <if test="openId != null">
+            u_oppenId = #{openId},
+        </if>
+    </sql>
+
+    <select id="getOrderInfoList" resultMap="orderInfo" parameterType="String">
+        SELECT
+        <include refid="select-pram-column"/>
+        FROM order_info
+        WHERE u_oppenId = #{openId}
+    </select>
+
+    <update id="updateOrderInfo" parameterType="com.zhongwen.shopping.bean.OrderInfoBean">
+        UPDATE order_info
+        <set>
+            <include refid="set"/>
+        </set>
+        WHERE u_oppenId = #{openId}
+    </update>
+
+    <insert id="addOrderInfo" parameterType="com.zhongwen.shopping.bean.OrderInfoBean">
+        INSERT INTO order_info
+        <set>
+            <include refid="set"/>
+        </set>
+    </insert>
+
+</mapper>
