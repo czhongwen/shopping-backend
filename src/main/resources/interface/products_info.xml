@@ -14,7 +14,7 @@
         <result property="info" column="p_info" javaType="String"/>
         <result property="indexDetailId" column="id_id" javaType="Integer"/>
         <result property="date" column="r_date" javaType="String"/>
-        <result property="detail" column="p_detail" javaType="Integer"/>
+        <result property="detail" column="p_detail" javaType="String"/>
         <result property="index" column="p_index" javaType="Integer"/>
         <result property="image1" column="p_pic1" javaType="String"/>
         <result property="image2" column="p_pic2" javaType="String"/>
@@ -132,4 +132,14 @@
         SET id_id = (id_id-1)
         WHERE p_id = #{id}
     </update>
+
+    <select id="getProducts" resultMap="productInfo" parameterType="List">
+        SELECT
+        <include refid="select-pram-column"/>
+        FROM products_info
+        WHERE p_id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
 </mapper>

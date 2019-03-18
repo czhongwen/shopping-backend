@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author caozw
  * @version 1.0
@@ -30,6 +33,15 @@ public class ProductInfoTest {
         ProductInfoBean productInfoBean = new ProductInfoBean();
         productInfoBean.setIndexDetailId(1);
         System.out.println(productInfoDAO.getProductCount(productInfoBean));
+    }
+
+    @Test
+    public void getByIds() {
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(27);
+        integerList.add(28);
+        integerList.add(30);
+        System.out.println(productInfoDAO.getProducts(integerList));
     }
 
 }

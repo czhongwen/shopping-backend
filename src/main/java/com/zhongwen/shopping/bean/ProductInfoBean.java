@@ -92,7 +92,7 @@ public class ProductInfoBean extends BasicBean {
     /**
      * 商品的打折信息
      */
-    private Integer descount;
+    private Integer discount;
 
     public Integer getId() {
         return id;
@@ -223,11 +223,11 @@ public class ProductInfoBean extends BasicBean {
     }
 
     public Integer getDescount() {
-        return descount;
+        return discount;
     }
 
-    public void setDescount(Integer descount) {
-        this.descount = descount;
+    public void setDescount(Integer discount) {
+        this.discount = discount;
     }
 
     @Override
@@ -249,7 +249,7 @@ public class ProductInfoBean extends BasicBean {
                 ", tupical='" + tupical + '\'' +
                 ", price=" + price +
                 ", num=" + num +
-                ", descount=" + descount +
+                ", discount=" + discount +
                 '}';
     }
 }

@@ -59,4 +59,11 @@ public interface IProductInfoDAO {
      * @return
      */
     int updateProductNum(Integer id);
+
+    /**
+     * 批量查询商品详情
+     * @param ids
+     * @return
+     */
+    List<ProductInfoBean> getProducts(List<Integer> ids);
 }
