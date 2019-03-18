@@ -42,4 +42,13 @@
             #{orderDetail.productNum, javaType = Integer})
         </foreach>
     </insert>
+
+    <select id="getHotProduct" resultType="Integer">
+         SELECT p_id
+         FROM order_detail
+         GROUP BY p_id
+         ORDER BY COUNT(p_id)
+         DESC LIMIT 0,10
+    </select>
+
  </mapper>

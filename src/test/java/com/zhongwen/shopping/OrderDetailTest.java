@@ -39,6 +39,11 @@ public class OrderDetailTest {
 
     @Test
     public void getList(){
-        System.out.println(orderDetailDAO.getOrderDetailList(342340));
+        System.out.println(orderDetailDAO.getOrderDetailList(342333));
+    }
+
+    @Test
+    public void getHotlist(){
+        System.out.println(orderDetailDAO.getHotProduct());
     }
 }

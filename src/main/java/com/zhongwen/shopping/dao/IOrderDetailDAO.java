@@ -26,4 +26,10 @@ public interface IOrderDetailDAO {
      * @return
      */
     List<OrderDetailBean> getOrderDetailList(Integer orderId);
+
+    /**
+     * 下单次数最多的十件商品
+     * @return
+     */
+    List<Integer> getHotProduct();
 }
