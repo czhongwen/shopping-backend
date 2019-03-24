@@ -39,4 +39,11 @@ public interface IIndexDetailDAO {
      * @return
      */
     List<IndexDeailBean> getIndexDetail(Integer indextypeId);
+
+    /**
+     * 根据大分类id获得详情
+     * @param ids
+     * @return
+     */
+    List<IndexDeailBean> getIndexDetailByIds(List<Integer> ids);
 }

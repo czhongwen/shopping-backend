@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author caozw
  * @version 1.0
@@ -46,6 +49,13 @@ public class IndexDetailTest {
 
     @Test
     public void deleteIndexdetail() {
-        System.out.println(iIndexDetailDAO.deleteIndexDetailById(92));
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+
+        System.out.println(iIndexDetailDAO.getIndexDetailByIds(list));
     }
 }

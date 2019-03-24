@@ -2,6 +2,8 @@ package com.zhongwen.shopping.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zhongwen.shopping.service.impl.OrderDetailServiceImpl;
+import com.zhongwen.shopping.util.ResultGenerator;
+import com.zhongwen.shopping.util.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,16 +24,12 @@ public class IndexController {
     OrderDetailServiceImpl orderDetailService;
 
     @RequestMapping(value = "/getHot", method = RequestMethod.POST)
-    public JSONObject getHotProducts() {
-
-        JSONObject result = new JSONObject();
-
+    public ResultVO getHotProducts() {
         try {
-            result.put("result", orderDetailService.getHotProducts());
+            return ResultGenerator.successResult(orderDetailService.getHotProducts());
         } catch (Exception e) {
-            result.put("系统异常", e.getMessage());
+            return ResultGenerator.failResult("请求异常:", e);
         }
-        return result;
     }
 
 }

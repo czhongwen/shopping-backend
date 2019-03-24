@@ -104,9 +104,15 @@
 
     <select id="getProductInfoByIndexDetailId" resultMap="productInfo" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
         SELECT
-        <include refid="select-pram-column"/>
+        p_id,p_name,p_pic1,p_price
         FROM products_info
         WHERE id_id = #{indexDetailId}
+        <if test="order != null and order == 'DESC'">
+            ORDER BY p_price DESC
+        </if>
+        <if test="order != null and order == 'ASC'">
+            ORDER BY p_price ASC
+        </if>
         <if test="offset != null and limit != null">
             LIMIT #{offset},#{limit}
         </if>
@@ -116,9 +122,6 @@
         SELECT count(*)
         FROM products_info
         WHERE id_id = #{indexDetailId}
-        <if test="offset != null and limit != null">
-            LIMIT #{offset},#{limit}
-        </if>
     </select>
 
     <select id="getProductNum" resultType="Integer" parameterType="Integer">

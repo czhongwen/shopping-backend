@@ -93,6 +93,10 @@ public class ProductInfoBean extends BasicBean {
      * 商品的打折信息
      */
     private Integer discount;
+    /**
+     * 排序信息
+     */
+    private String order;
 
     public Integer getId() {
         return id;
@@ -230,9 +234,25 @@ public class ProductInfoBean extends BasicBean {
         this.discount = discount;
     }
 
+    public Integer getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
+    }
+
+    public String getOrder() {
+        return order;
+    }
+
+    public void setOrder(String order) {
+        this.order = order;
+    }
+
     @Override
     public String toString() {
-        return "ProductInfoDAO{" +
+        return "ProductInfoBean{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", Info='" + Info + '\'' +
@@ -250,6 +270,7 @@ public class ProductInfoBean extends BasicBean {
                 ", price=" + price +
                 ", num=" + num +
                 ", discount=" + discount +
+                ", order='" + order + '\'' +
                 '}';
     }
 }

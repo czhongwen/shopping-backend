@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author caozw
  * @version 1.0
@@ -45,5 +48,17 @@ public class IndexTypeTest {
         indexTypeBean.setName("520");
         indexTypeBean.setImageUrl("520");
         System.out.println(indexTypeDAO.updateIndexTypeById(indexTypeBean));
+    }
+
+    @Test
+    public void getAll() {
+        List<IndexTypeBean> indexTypeBeans = indexTypeDAO.getIndexTypeList();
+        for (IndexTypeBean indexTypeBean : indexTypeBeans) {
+            String imageUrl = indexTypeBean.getImageUrl();
+            indexTypeBean.setImageUrl(imageUrl.replace("/wxshopping/userfiles",""));
+        }
+        System.out.println(indexTypeBeans);
+        System.out.println(indexTypeDAO.updateIndexTypeById(indexTypeBeans.get(0)));
+        System.out.println("修改完成！！！");
     }
 }

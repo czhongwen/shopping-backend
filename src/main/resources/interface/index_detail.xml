@@ -52,4 +52,15 @@
         </set>
         WHERE id_id = #{id}
     </update>
+
+    <select id="getIndexDetailByIds" parameterType="list" resultMap="indexDetail">
+        SELECT
+        <include refid="select-pram-column"/>
+        FROM index_detail
+        WHERE it_id
+        IN
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
 </mapper>
