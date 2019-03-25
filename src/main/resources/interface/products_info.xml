@@ -138,7 +138,7 @@
 
     <select id="getProducts" resultMap="productInfo" parameterType="List">
         SELECT
-        <include refid="select-pram-column"/>
+        p_id,p_name,p_pic1,p_price,p_num,p_discount,p_info
         FROM products_info
         WHERE p_id in
         <foreach collection="list" item="item" open="(" separator="," close=")">
