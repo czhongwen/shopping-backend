@@ -76,4 +76,20 @@ public class CartServiceImpl implements ICartService {
 
         return  array;
     }
+
+    @Override
+    public Boolean delAllCartsByOpenId(String openId) throws Exception {
+
+        return true;
+    }
+
+    @Override
+    public Boolean delCartsByIds(List<Integer> ids) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Boolean addCarts(List<CartInfoBean> cartInfoBeans) throws Exception {
+        return null;
+    }
 }

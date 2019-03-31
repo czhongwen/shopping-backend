@@ -34,4 +34,13 @@ public class CartController {
         }
     }
 
+    @RequestMapping(value = "delAll", method = RequestMethod.POST)
+    public ResultVO delAllCarts(String openId) {
+        try {
+            return ResultGenerator.successResult("1212");
+        } catch (Exception e) {
+            return ResultGenerator.successResult("1212");
+        }
+    }
+
 }

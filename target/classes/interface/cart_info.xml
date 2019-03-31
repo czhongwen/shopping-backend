@@ -54,4 +54,22 @@
             <include refid="set"/>
         </set>
     </insert>
+
+    <delete id="delAllCartsByOpenId" parameterMap="String">
+        DELETE FROM carts
+        WHERE openid = #{openId}
+    </delete>
+
+    <insert id="" parameterType="list">
+        INSERT INTO carts
+        (p_id, oppenid, p_num)
+        VALUES
+        <foreach collection="list" item="CartInfoBean" separator="," index="index">
+            (
+              #{CartInfoBean.productId, javaType = Integer},
+              #{CartInfoBean.openId, javaType = String},
+              #{CartInfoBean.productNum, javaType = Integer},
+            )
+        </foreach>
+    </insert>
 </mapper>
