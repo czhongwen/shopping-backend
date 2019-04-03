@@ -21,20 +21,20 @@ public class ProductInfoServiceImpl implements IProductInfoService {
     IProductInfoDAO productInfoDAO;
 
     @Override
-    public ProductInfoBean getProductById(Integer id) throws Exception {
+    public ProductInfoBean getProductById(Integer id) {
 
         if (id == null || id < 0) {
-            throw new Exception("对不起,该商品可能卖完了！");
+            throw new RuntimeException("对不起,该商品可能卖完了！");
         }
 
         return productInfoDAO.getProductInfoById(id);
     }
 
     @Override
-    public JSONObject getProductInfoByTypeId(ProductInfoBean productInfoBean) throws Exception {
+    public JSONObject getProductInfoByTypeId(ProductInfoBean productInfoBean) {
 
         if (productInfoBean.getIndexDetailId() == null ) {
-            throw new Exception("查询的商品的类型为空！");
+            throw new RuntimeException("查询的商品的类型为空！");
         }
 
         if (productInfoBean.getOffset() < 0 ) {
@@ -50,7 +50,7 @@ public class ProductInfoServiceImpl implements IProductInfoService {
         List<ProductInfoBean> productInfoBeans = productInfoDAO.getProductInfoByIndexDetailId(productInfoBean);
 
         if (productInfoBeans == null || productInfoBeans.size() <= 0) {
-            throw new Exception("sorry,系统异常！");
+            throw new RuntimeException("sorry,系统异常！");
         }
 
         JSONObject result = new JSONObject();

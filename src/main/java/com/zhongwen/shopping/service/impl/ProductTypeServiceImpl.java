@@ -27,11 +27,11 @@ public class ProductTypeServiceImpl implements IProductTypeService {
     IIndexDetailDAO indexDetailDAO;
 
     @Override
-    public JSONArray getAllType() throws Exception {
+    public JSONArray getAllType() {
         List<IndexTypeBean> indexTypeBeans =  indexTypeDAO.getIndexTypeList();
 
         if (indexTypeBeans == null || indexTypeBeans.size() <= 0) {
-            throw new Exception("sorry,系统异常");
+            throw new RuntimeException("sorry,系统异常");
         }
 
         List<Integer> typeIds = new ArrayList<>();
@@ -42,7 +42,7 @@ public class ProductTypeServiceImpl implements IProductTypeService {
         List<IndexDeailBean> indexDetailBeans = indexDetailDAO.getIndexDetailByIds(typeIds);
 
         if (indexDetailBeans == null || indexDetailBeans.size() <= 0) {
-            throw new Exception("sorry,系统异常");
+            throw new RuntimeException("sorry,系统异常");
         }
 
         //封装查询的结果

@@ -18,7 +18,7 @@ public interface ICartService {
      * @return
      * @throws Exception
      */
-    JSONArray getCartByOpenId(String openId) throws Exception;
+    JSONArray getCartByOpenId(String openId);
 
     /**
      * 根据用户的openid删除用户的购物车
@@ -26,7 +26,7 @@ public interface ICartService {
      * @return
      * @throws Exception
      */
-    Boolean delAllCartsByOpenId(String openId) throws Exception;
+    Boolean delAllCartsByOpenId(String openId);
 
     /**
      * 根据ids删除用户的购物车
@@ -34,7 +34,7 @@ public interface ICartService {
      * @return
      * @throws Exception
      */
-    Boolean delCartsByIds(List<Integer> ids) throws Exception;
+    Boolean delCartsByIds(List<Integer> ids);
 
     /**
      * 增加用户的购物车
@@ -42,5 +42,5 @@ public interface ICartService {
      * @return
      * @throws Exception
      */
-    Boolean addCarts(List<CartInfoBean> cartInfoBeans) throws Exception;
+    Boolean addCarts(List<CartInfoBean> cartInfoBeans);
 }

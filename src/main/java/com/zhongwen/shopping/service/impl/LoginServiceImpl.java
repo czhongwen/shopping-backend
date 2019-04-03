@@ -22,21 +22,24 @@ import java.util.Map;
 @Service
 public class LoginServiceImpl implements ILoginService {
     @Override
-    public Map<String, String> getOpenId(String key) throws Exception{
+    public Map<String, String> getOpenId(String key) {
         if (key == null ) {
-            throw new Exception("sorry,未获得您的key,请检查网络。");
+            throw new RuntimeException("sorry,未获得您的key,请检查网络。");
         }
 
         JSONObject object = JSON.parseObject(key);
 
-        String[] strings = load(object.getString("key"));
-
-        if (strings == null || strings.length != 2 || strings[1] == null) {
-            throw new Exception("sorry,未获取到OpenId");
+        try {
+            String[] strings = load(object.getString("key"));
+            if (strings == null || strings.length != 2 || strings[1] == null) {
+                throw new RuntimeException("sorry,未获取到OpenId");
+            }
+            Map<String, String> map = new HashMap<>();
+            map.put("openid", strings[1]);
+            return map;
+        } catch (Exception e) {
+            throw new RuntimeException("服务器可能挂掉了");
         }
-        Map<String, String> map = new HashMap<>();
-        map.put("openid", strings[1]);
-        return map;
     }
 
     private String[] load(String key) throws Exception

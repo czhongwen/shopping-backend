@@ -29,16 +29,16 @@ public class CartServiceImpl implements ICartService {
     private IProductInfoDAO productInfoDAO;
 
     @Override
-    public JSONArray getCartByOpenId(String openId) throws Exception {
+    public JSONArray getCartByOpenId(String openId) {
 
         if (StringUtils.isEmpty(openId)) {
-            throw new Exception("丢失了一些重要信息,请重新登陆小程序");
+            throw new RuntimeException("丢失了一些重要信息,请重新登陆小程序");
         }
 
         List<CartInfoBean> cartInfoBeans = cartInfoDAO.getCartsList(openId);
 
         if (cartInfoBeans == null) {
-            throw new Exception("");
+            throw new RuntimeException("");
         }
 
         //获取商品id
@@ -78,18 +78,18 @@ public class CartServiceImpl implements ICartService {
     }
 
     @Override
-    public Boolean delAllCartsByOpenId(String openId) throws Exception {
+    public Boolean delAllCartsByOpenId(String openId) {
 
         return true;
     }
 
     @Override
-    public Boolean delCartsByIds(List<Integer> ids) throws Exception {
+    public Boolean delCartsByIds(List<Integer> ids) {
         return null;
     }
 
     @Override
-    public Boolean addCarts(List<CartInfoBean> cartInfoBeans) throws Exception {
+    public Boolean addCarts(List<CartInfoBean> cartInfoBeans) {
         return null;
     }
 }

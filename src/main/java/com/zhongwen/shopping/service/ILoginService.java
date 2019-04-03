@@ -13,6 +13,6 @@ public interface ILoginService {
      * 获取用户openID
      * @return
      */
-    Map<String, String> getOpenId(String key) throws Exception;
+    Map<String, String> getOpenId(String key);
 
 }

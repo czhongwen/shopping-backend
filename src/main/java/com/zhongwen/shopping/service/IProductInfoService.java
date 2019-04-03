@@ -19,7 +19,7 @@ public interface IProductInfoService {
      * @param id
      * @return
      */
-    ProductInfoBean getProductById (Integer id) throws Exception;
+    ProductInfoBean getProductById (Integer id);
 
     /**
      * 根据typeId查询商品列表
@@ -27,5 +27,5 @@ public interface IProductInfoService {
      * @return
      * @throws Exception
      */
-    JSONObject getProductInfoByTypeId(ProductInfoBean productInfoBean) throws Exception;
+    JSONObject getProductInfoByTypeId(ProductInfoBean productInfoBean);
 }

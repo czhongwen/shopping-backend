@@ -13,5 +13,5 @@ public interface IProductTypeService  {
      * 获得所有商品分类信息
      * @return
      */
-    JSONArray getAllType () throws Exception;
+    JSONArray getAllType ();
 }

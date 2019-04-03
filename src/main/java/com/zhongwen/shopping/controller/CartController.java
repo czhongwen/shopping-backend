@@ -26,21 +26,13 @@ public class CartController {
 
     @RequestMapping(value = "/getCarts", method = RequestMethod.POST)
     public ResultVO getCartsByOpenId(@RequestBody JSONObject prams) {
-        try {
-            String openId = prams.getString("openId");
-            return ResultGenerator.successResult(cartService.getCartByOpenId(openId));
-        } catch (Exception e) {
-            return ResultGenerator.failResult("请求异常:", e);
-        }
+        String openId = prams.getString("openId");
+        return ResultGenerator.successResult(cartService.getCartByOpenId(openId));
     }
 
     @RequestMapping(value = "delAll", method = RequestMethod.POST)
     public ResultVO delAllCarts(String openId) {
-        try {
-            return ResultGenerator.successResult("1212");
-        } catch (Exception e) {
-            return ResultGenerator.successResult("1212");
-        }
+        return ResultGenerator.successResult("1212");
     }
 
 }
