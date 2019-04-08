@@ -2,6 +2,7 @@ package com.zhongwen.shopping.service;
 
 import com.alibaba.fastjson.JSONArray;
 import com.zhongwen.shopping.bean.CartInfoBean;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @version 1.0
  * @data 2019-03-24 22:41
  **/
+@Service
 public interface ICartService {
 
     /**
@@ -43,4 +45,11 @@ public interface ICartService {
      * @throws Exception
      */
     Boolean addCarts(List<CartInfoBean> cartInfoBeans);
+
+    /**
+     * 根据id删除购物车
+     * @param id
+     * @return
+     */
+    Boolean delCartById(Integer id);
 }

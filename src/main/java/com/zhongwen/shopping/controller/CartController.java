@@ -30,9 +30,14 @@ public class CartController {
         return ResultGenerator.successResult(cartService.getCartByOpenId(openId));
     }
 
-    @RequestMapping(value = "delAll", method = RequestMethod.POST)
+    @RequestMapping(value = "/delAll", method = RequestMethod.POST)
     public ResultVO delAllCarts(String openId) {
-        return ResultGenerator.successResult("1212");
+        return ResultGenerator.successResult(true);
     }
 
+    @RequestMapping(value = "/delCartById")
+    public ResultVO delCartById(@RequestBody JSONObject prams) {
+        Integer id = prams.getInteger("id");
+        return ResultGenerator.successResult(cartService.delCartById(id));
+    }
 }

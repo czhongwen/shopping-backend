@@ -47,7 +47,7 @@ public interface ICartInfoDAO {
      * @return
      * @throws Exception
      */
-    Boolean delAllCartsByOpenId(String openId) throws Exception;
+    Boolean delAllCartsByOpenId(String openId);
 
     /**
      * 根据ids删除用户的购物车
@@ -55,7 +55,7 @@ public interface ICartInfoDAO {
      * @return
      * @throws Exception
      */
-    Boolean delCartsByIds(List<Integer> ids) throws Exception;
+    Boolean delCartsByIds(List<Integer> ids);
 
     /**
      * 增加用户的购物车
@@ -63,5 +63,12 @@ public interface ICartInfoDAO {
      * @return
      * @throws Exception
      */
-    Boolean addCarts(List<CartInfoBean> cartInfoBeans) throws Exception;
+    Boolean addCarts(List<CartInfoBean> cartInfoBeans);
+
+    /**
+     * 根据id删除购物车
+     * @param id
+     * @return
+     */
+    Boolean delCartById(Integer id);
 }

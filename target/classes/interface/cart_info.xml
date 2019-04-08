@@ -48,19 +48,12 @@
         WHERE cartId = #{cartId}
     </delete>
 
-    <insert id="addCarts" parameterType="com.zhongwen.shopping.bean.CartInfoBean">
-        INSERT carts
-        <set>
-            <include refid="set"/>
-        </set>
-    </insert>
-
-    <delete id="delAllCartsByOpenId" parameterMap="String">
+    <delete id="delAllCartsByOpenId" parameterType="String">
         DELETE FROM carts
         WHERE openid = #{openId}
     </delete>
 
-    <insert id="" parameterType="list">
+    <insert id="addCarts" parameterType="list">
         INSERT INTO carts
         (p_id, oppenid, p_num)
         VALUES
@@ -72,4 +65,17 @@
             )
         </foreach>
     </insert>
+
+    <delete id="delCartsByIds" parameterType="list">
+        DELETE FROM carts
+        WHERE cartId IN
+        <foreach collection="list" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </delete>
+
+    <delete id="delCartById" parameterType="Integer">
+        DELETE FROM carts
+        WHERE cartId = #{id}
+    </delete>
 </mapper>

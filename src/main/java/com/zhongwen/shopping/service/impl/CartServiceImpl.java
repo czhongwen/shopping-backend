@@ -9,6 +9,7 @@ import com.zhongwen.shopping.dao.IProductInfoDAO;
 import com.zhongwen.shopping.service.ICartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
@@ -79,17 +80,37 @@ public class CartServiceImpl implements ICartService {
 
     @Override
     public Boolean delAllCartsByOpenId(String openId) {
-
-        return true;
+        if (StringUtils.isEmpty(openId)) {
+            cartInfoDAO.delAllCartsByOpenId(openId);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Boolean delCartsByIds(List<Integer> ids) {
-        return null;
+        if (!CollectionUtils.isEmpty(ids)) {
+            cartInfoDAO.delCartsByIds(ids);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Boolean addCarts(List<CartInfoBean> cartInfoBeans) {
-        return null;
+        if (!CollectionUtils.isEmpty(cartInfoBeans)) {
+            cartInfoDAO.addCarts(cartInfoBeans);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean delCartById(Integer id) {
+        if (StringUtils.isEmpty(id)) {
+            throw new RuntimeException("ID为空!");
+        }
+        cartInfoDAO.delCartById(id);
+        return true;
     }
 }

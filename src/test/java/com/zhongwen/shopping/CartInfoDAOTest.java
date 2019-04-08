@@ -32,9 +32,10 @@ public class CartInfoDAOTest {
     @Test
     public void testUpdate() {
         List<CartInfoBean> cartInfoBeanList = cartInfoDAO.getCartsList("o_k4M5CkHNYRH2M7zIBHqYcqxlU4");
-        CartInfoBean cartInfoBean = cartInfoBeanList.get(0);
-        cartInfoBean.setProductNum(520);
-        System.out.println(cartInfoDAO.updateCartInfo(cartInfoBean));
+//        CartInfoBean cartInfoBean = cartInfoBeanList.get(0);
+//        cartInfoBean.setProductNum(520);
+//        System.out.println(cartInfoDAO.updateCartInfo(cartInfoBean));
+        System.out.println(cartInfoBeanList);
     }
 
     @Test
