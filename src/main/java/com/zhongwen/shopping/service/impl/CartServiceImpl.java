@@ -121,8 +121,21 @@ public class CartServiceImpl implements ICartService {
             throw  new RuntimeException("丢失重要信息!");
         }
 
-        cartInfoDAO.addCart(cartInfoBean);
+        if (cartInfoBean.getProductId() == null) {
+            throw new RuntimeException("参数异常!");
+        }
 
+        if (cartInfoBean.getProductNum() <= 0) {
+            cartInfoBean.setProductNum(1);
+        }
+
+        CartInfoBean cartInfoBeanCheckExit = cartInfoDAO.checkExit(cartInfoBean);
+
+        if (cartInfoBeanCheckExit != null) {
+            throw new RuntimeException("商品已存在!");
+        }
+
+        cartInfoDAO.addCart(cartInfoBean);
         return true;
     }
 }

@@ -49,6 +49,6 @@ public class CartInfoDAOTest {
         cartInfoBean.setProductNum(520);
         cartInfoBean.setProductId(10);
         cartInfoBean.setOpenId("o_k4M5CkHNYRH2M7zIBHqYcqxlU4");
-        System.out.println(cartInfoDAO.addCarts(cartInfoBean));
+        System.out.println(cartInfoDAO.addCart(cartInfoBean));
     }
 }

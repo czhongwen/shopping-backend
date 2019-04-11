@@ -71,4 +71,11 @@ public interface ICartInfoDAO {
      * @return
      */
     Boolean delCartById(Integer id);
+
+    /**
+     * 查询用户是否已添加购物车
+     * @param cartInfoBean
+     * @return
+     */
+    CartInfoBean checkExit(CartInfoBean cartInfoBean);
 }
