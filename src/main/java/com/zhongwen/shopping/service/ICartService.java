@@ -11,7 +11,6 @@ import java.util.List;
  * @version 1.0
  * @data 2019-03-24 22:41
  **/
-@Service
 public interface ICartService {
 
     /**
@@ -52,4 +51,11 @@ public interface ICartService {
      * @return
      */
     Boolean delCartById(Integer id);
+
+    /**
+     * 添加购物车
+     * @param cartInfoBean
+     * @return
+     */
+    Boolean addCart(CartInfoBean cartInfoBean);
 }

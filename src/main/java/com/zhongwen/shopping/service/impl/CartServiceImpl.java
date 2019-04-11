@@ -113,4 +113,16 @@ public class CartServiceImpl implements ICartService {
         cartInfoDAO.delCartById(id);
         return true;
     }
+
+    @Override
+    public Boolean addCart(CartInfoBean cartInfoBean) {
+
+        if (StringUtils.isEmpty(cartInfoBean.getOpenId())) {
+            throw  new RuntimeException("丢失重要信息!");
+        }
+
+        cartInfoDAO.addCart(cartInfoBean);
+
+        return true;
+    }
 }

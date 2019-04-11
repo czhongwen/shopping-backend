@@ -57,15 +57,17 @@
         INSERT INTO carts
         (p_id, oppenid, p_num)
         VALUES
-        <foreach collection="list" item="CartInfoBean" separator="," index="index">
-            (
-              #{CartInfoBean.productId, javaType = Integer},
-              #{CartInfoBean.openId, javaType = String},
-              #{CartInfoBean.productNum, javaType = Integer},
-            )
+        <foreach collection="list" open="(" close=")" item="CartInfoBean" separator="," index="index">
+            #{CartInfoBean.productId, javaType = Integer},
+            #{CartInfoBean.openId, javaType = String},
+            #{CartInfoBean.productNum, javaType = Integer},
         </foreach>
     </insert>
 
+    <insert id="addCart" parameterType="com.zhongwen.shopping.bean.CartInfoBean">
+        INSERT INTO carts
+        <include refid="set"></include>
+    </insert>
     <delete id="delCartsByIds" parameterType="list">
         DELETE FROM carts
         WHERE cartId IN

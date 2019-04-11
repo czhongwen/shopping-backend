@@ -1,6 +1,7 @@
 package com.zhongwen.shopping.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zhongwen.shopping.bean.CartInfoBean;
 import com.zhongwen.shopping.service.ICartService;
 import com.zhongwen.shopping.util.ResultGenerator;
 import com.zhongwen.shopping.util.ResultVO;
@@ -39,5 +40,14 @@ public class CartController {
     public ResultVO delCartById(@RequestBody JSONObject prams) {
         Integer id = prams.getInteger("id");
         return ResultGenerator.successResult(cartService.delCartById(id));
+    }
+
+    @RequestMapping(value = "/addCart", method = RequestMethod.POST)
+    public ResultVO addCart(@RequestBody JSONObject prams) {
+        CartInfoBean cartInfoBean = new CartInfoBean();
+        cartInfoBean.setProductId(prams.getInteger("productId"));
+        cartInfoBean.setOpenId(prams.getString("openId"));
+        cartInfoBean.setProductNum(prams.getInteger("num"));
+        return ResultGenerator.successResult(cartService.addCart(cartInfoBean));
     }
 }
