@@ -38,8 +38,8 @@ public class CartServiceImpl implements ICartService {
 
         List<CartInfoBean> cartInfoBeans = cartInfoDAO.getCartsList(openId);
 
-        if (cartInfoBeans == null) {
-            throw new RuntimeException("");
+        if (CollectionUtils.isEmpty(cartInfoBeans)) {
+            throw new RuntimeException("你的购物车为空");
         }
 
         //获取商品id
