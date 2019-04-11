@@ -39,7 +39,7 @@ public interface ICartInfoDAO {
      * @param cartInfoBean
      * @return
      */
-    int addCarts(CartInfoBean cartInfoBean);
+    int addCart(CartInfoBean cartInfoBean);
 
     /**
      * 根据用户的openid删除用户的购物车
