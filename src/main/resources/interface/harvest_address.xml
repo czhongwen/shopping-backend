@@ -48,6 +48,7 @@
         FROM address_info
         WHERE u_oppenid = #{openId}
         AND a_default != 3
+        ORDER BY a_default DESC
     </select>
 
     <update id="updateAddressInfo" parameterType="com.zhongwen.shopping.bean.AddressInfoBean">
