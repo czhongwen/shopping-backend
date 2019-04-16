@@ -31,4 +31,17 @@ public class AddressServiceImpl implements IAddressService {
 
         return addressInfoBeanList;
     }
+
+    @Override
+    public Boolean delAddress(Integer id) {
+        if (id == null || id <= 0) {
+            throw new RuntimeException("参数异常!");
+        }
+
+        AddressInfoBean addressInfoBean = new AddressInfoBean();
+        addressInfoBean.setId(id);
+        addressInfoBean.setDefaultStatus(3);
+
+        return addressInfoDAO.updateAddressInfo(addressInfoBean) > 0;
+    }
 }

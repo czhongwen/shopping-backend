@@ -26,4 +26,10 @@ public class AddressController {
         return ResultGenerator.successResult(addressService.getAddresss(openId));
     }
 
+    @RequestMapping(value = "/delAddress", method = RequestMethod.POST)
+    public ResultVO delAddress(@RequestBody JSONObject prams) {
+        Integer id = prams.getInteger("id");
+        return ResultGenerator.successResult(addressService.delAddress(id));
+    }
+
 }

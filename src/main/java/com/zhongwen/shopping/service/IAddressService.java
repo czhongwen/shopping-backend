@@ -18,4 +18,10 @@ public interface IAddressService {
      */
     List<AddressInfoBean> getAddresss(String openId);
 
+    /**
+     * 删除收货地址
+     * @param id
+     * @return
+     */
+    Boolean delAddress(Integer id);
 }
