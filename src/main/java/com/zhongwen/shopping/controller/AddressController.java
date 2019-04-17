@@ -1,6 +1,7 @@
 package com.zhongwen.shopping.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zhongwen.shopping.bean.AddressInfoBean;
 import com.zhongwen.shopping.service.IAddressService;
 import com.zhongwen.shopping.util.ResultGenerator;
 import com.zhongwen.shopping.util.ResultVO;
@@ -30,6 +31,11 @@ public class AddressController {
     public ResultVO delAddress(@RequestBody JSONObject prams) {
         Integer id = prams.getInteger("id");
         return ResultGenerator.successResult(addressService.delAddress(id));
+    }
+
+    @RequestMapping(value = "/updateAddress", method = RequestMethod.POST)
+    public ResultVO updateAddrss(@RequestBody AddressInfoBean addressInfoBean) {
+        return null;
     }
 
 }

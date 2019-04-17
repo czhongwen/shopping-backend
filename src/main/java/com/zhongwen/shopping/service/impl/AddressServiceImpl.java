@@ -44,4 +44,9 @@ public class AddressServiceImpl implements IAddressService {
 
         return addressInfoDAO.updateAddressInfo(addressInfoBean) > 0;
     }
+
+    @Override
+    public Boolean updateAddress(AddressInfoBean addressInfoBean) {
+        return addressInfoDAO.updateAddressInfo(addressInfoBean) > 0;
+    }
 }

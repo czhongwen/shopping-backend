@@ -24,4 +24,11 @@ public interface IAddressService {
      * @return
      */
     Boolean delAddress(Integer id);
+
+    /**
+     * 用户修改地址
+     * @param addressInfoBean
+     * @return
+     */
+    Boolean updateAddress(AddressInfoBean addressInfoBean);
 }
