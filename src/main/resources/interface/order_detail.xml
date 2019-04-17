@@ -51,4 +51,13 @@
          DESC LIMIT 0,10
     </select>
 
+    <select id="getByIds" parameterType="list">
+        SELECT
+        <include refid="select-pram-column"></include>
+        FROM order_detail
+        where o_id in
+        <foreach collection="list" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </select>
  </mapper>

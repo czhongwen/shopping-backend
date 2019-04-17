@@ -32,4 +32,11 @@ public interface IOrderDetailDAO {
      * @return
      */
     List<Integer> getHotProduct();
+
+    /**
+     * 根据订单号查询订详情
+     * @param ids
+     * @return
+     */
+    List<OrderDetailBean> getByIds(List<Integer> ids);
 }
