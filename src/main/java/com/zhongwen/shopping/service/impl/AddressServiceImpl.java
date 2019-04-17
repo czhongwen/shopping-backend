@@ -49,4 +49,14 @@ public class AddressServiceImpl implements IAddressService {
     public Boolean updateAddress(AddressInfoBean addressInfoBean) {
         return addressInfoDAO.updateAddressInfo(addressInfoBean) > 0;
     }
+
+    @Override
+    public Boolean addAddress(AddressInfoBean addressInfoBean) {
+
+        if (addressInfoBean.getUserOpenId() == null) {
+            throw new RuntimeException("参数错误!");
+        }
+
+        return addressInfoDAO.addAddress(addressInfoBean) > 0;
+    }
 }

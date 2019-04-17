@@ -58,4 +58,12 @@
         </set>
         where a_id = #{id}
     </update>
+
+    <insert id="addAddress" parameterType="com.zhongwen.shopping.bean.AddressInfoBean">
+        INSERT
+        INTO address_info
+        (u_oppenid, a_name, a_telephone, a_provice, a_city, a_county, a_detail, a_default)
+        VALUES
+        (#{userOpenId}, #{name}, #{phone}, #{provice}, #{city}, #{country}, #{detail}, #{detail})
+    </insert>
 </mapper>

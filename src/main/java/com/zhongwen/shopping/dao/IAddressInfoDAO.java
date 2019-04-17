@@ -28,4 +28,10 @@ public interface IAddressInfoDAO {
      */
     int updateAddressInfo(AddressInfoBean addressInfoBean);
 
+    /**
+     * 添加收货地址
+     * @param addressInfoBean
+     * @return
+     */
+    int addAddress(AddressInfoBean addressInfoBean);
 }

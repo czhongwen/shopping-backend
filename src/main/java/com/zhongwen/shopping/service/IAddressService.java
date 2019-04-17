@@ -31,4 +31,11 @@ public interface IAddressService {
      * @return
      */
     Boolean updateAddress(AddressInfoBean addressInfoBean);
+
+    /**
+     * 用户增加收货地址
+     * @param addressInfoBean
+     * @return
+     */
+    Boolean addAddress(AddressInfoBean addressInfoBean);
 }

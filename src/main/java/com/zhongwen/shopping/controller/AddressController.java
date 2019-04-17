@@ -35,7 +35,11 @@ public class AddressController {
 
     @RequestMapping(value = "/updateAddress", method = RequestMethod.POST)
     public ResultVO updateAddrss(@RequestBody AddressInfoBean addressInfoBean) {
-        return null;
+        return ResultGenerator.successResult(addressService.updateAddress(addressInfoBean));
     }
 
+    @RequestMapping(value = "/addAddress", method = RequestMethod.POST)
+    public ResultVO addAddress(@RequestBody AddressInfoBean addressInfoBean) {
+        return ResultGenerator.successResult(addressService.addAddress(addressInfoBean));
+    }
 }
