@@ -51,7 +51,7 @@
          DESC LIMIT 0,10
     </select>
 
-    <select id="getByIds" parameterType="list">
+    <select id="getByIds" parameterType="list" resultMap="orderDetail">
         SELECT
         <include refid="select-pram-column"></include>
         FROM order_detail

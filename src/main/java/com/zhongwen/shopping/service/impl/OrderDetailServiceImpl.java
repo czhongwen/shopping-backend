@@ -49,14 +49,22 @@ public class OrderDetailServiceImpl implements IOrderDetailService {
 
         List<OrderInfoBean> orderInfoBeans = orderInfoDAO.getOrderInfoList(openId);
 
-        if (orderInfoBeans.size() <= 0) {
+        if (CollectionUtils.isEmpty(orderInfoBeans)) {
             return new ArrayList<>();
         }
 
         List<Integer> orderIds = new ArrayList<>();
 
+        List<Map> orderInfos = new ArrayList<>();
         for (OrderInfoBean orderInfoBean : orderInfoBeans) {
             orderIds.add(orderInfoBean.getId());
+            Map orderInfoMap = new HashMap();
+            orderInfoMap.put("orderId", orderInfoBean.getId());
+            orderInfoMap.put("addressId", orderInfoBean.getAddressId());
+            orderInfoMap.put("time", orderInfoBean.getDate());
+            orderInfoMap.put("status", orderInfoBean.getStatus());
+            orderInfoMap.put("list", new ArrayList<Map>());
+            orderInfos.add(orderInfoMap);
         }
 
         List<OrderDetailBean> orderDetailBeans = orderDetailDAO.getByIds(orderIds);
@@ -66,25 +74,42 @@ public class OrderDetailServiceImpl implements IOrderDetailService {
         }
 
         List<Integer> productIds = new ArrayList<>();
-        Map<Integer, Integer> maps = new HashMap<>();
+        Map orderDetailMap = new HashMap();
         for (OrderDetailBean orderDetailBean : orderDetailBeans) {
             productIds.add(orderDetailBean.getProductId());
-            maps.put(orderDetailBean.getProductId(), orderDetailBean.getProductNum());
+            orderDetailMap.put(orderDetailBean.getOrderId(), orderDetailBean.getProductNum());
+            orderDetailMap.put(orderDetailBean.getProductId(), orderDetailBean.getOrderId());
         }
 
         List<ProductInfoBean> productInfoBeans = productInfoDAO.getProducts(productIds);
 
-        List<Map> result = new ArrayList<>();
-        for (ProductInfoBean productInfoBean : productInfoBeans) {
-            Map temp = new HashMap();
-            temp.put("productId", productInfoBean.getId());
-            temp.put("image", productInfoBean.getImage1());
-            temp.put("info", productInfoBean.getInfo());
-            temp.put("name", productInfoBean.getName());
-            temp.put("num", maps.get(productInfoBean.getId()));
-            result.add(temp);
+        if (CollectionUtils.isEmpty(productInfoBeans)) {
+            return new ArrayList<>();
         }
 
-        return result;
+        List<Map> orderDetails = new ArrayList<>();
+        for (ProductInfoBean productInfoBean : productInfoBeans) {
+            Map temp = new HashMap();
+            temp.put("image", productInfoBean.getImage1());
+            temp.put("name", productInfoBean.getName());
+            temp.put("info", productInfoBean.getInfo());
+            temp.put("num", orderDetailMap.get(orderDetailMap.get(productInfoBean.getId())));
+            temp.put("orderId", orderDetailMap.get(productInfoBean.getId()));
+            temp.put("detail", productInfoBean.getDetail());
+            orderDetails.add(temp);
+        }
+
+        for (Map orderInfoMap : orderInfos) {
+            for (Map orderDetailMaps : orderDetails) {
+                if ( orderInfoMap.get("orderId").equals(orderDetailMaps.get("orderId")) ) {
+                    List<Map> map = (ArrayList<Map>)orderInfoMap.get("list");
+                    orderDetailMaps.put("status", orderInfoMap.get("status"));
+                    map.add(orderDetailMaps);
+                    orderInfoMap.put("list", map);
+                }
+            }
+        }
+
+        return orderInfos;
     }
 }

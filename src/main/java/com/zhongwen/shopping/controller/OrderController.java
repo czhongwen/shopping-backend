@@ -1,5 +1,6 @@
 package com.zhongwen.shopping.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zhongwen.shopping.service.IOrderDetailService;
 import com.zhongwen.shopping.util.ResultGenerator;
 import com.zhongwen.shopping.util.ResultVO;
@@ -22,8 +23,8 @@ public class OrderController {
     private  IOrderDetailService orderDetailService;
 
     @RequestMapping(value = "/getOrders", method = RequestMethod.POST)
-    public ResultVO getOrder(@RequestBody String openId) {
-        return ResultGenerator.successResult(orderDetailService.getOrdersByOpenId(openId));
+    public ResultVO getOrder(@RequestBody JSONObject prams) {
+        return ResultGenerator.successResult(orderDetailService.getOrdersByOpenId(prams.getString("openId")));
     }
 
 }
