@@ -34,4 +34,11 @@ public interface IAddressInfoDAO {
      * @return
      */
     int addAddress(AddressInfoBean addressInfoBean);
+
+    /**
+     * 根据openID获取默认地址
+     * @param openId
+     * @return
+     */
+    AddressInfoBean getDefaultAddress(String openId);
 }

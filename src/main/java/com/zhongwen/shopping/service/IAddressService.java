@@ -38,4 +38,11 @@ public interface IAddressService {
      * @return
      */
     Boolean addAddress(AddressInfoBean addressInfoBean);
+
+    /**
+     * 获取默认地址
+     * @param openId
+     * @return
+     */
+    AddressInfoBean getDefaultAddress(String openId);
 }

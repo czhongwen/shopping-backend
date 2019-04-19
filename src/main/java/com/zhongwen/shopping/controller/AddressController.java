@@ -42,4 +42,9 @@ public class AddressController {
     public ResultVO addAddress(@RequestBody AddressInfoBean addressInfoBean) {
         return ResultGenerator.successResult(addressService.addAddress(addressInfoBean));
     }
+
+    @RequestMapping(value = "/getDefault", method = RequestMethod.POST)
+    public ResultVO getDefaultAddress(@RequestBody JSONObject prams) {
+        return ResultGenerator.successResult(addressService.getDefaultAddress(prams.getString("openId")));
+    }
 }

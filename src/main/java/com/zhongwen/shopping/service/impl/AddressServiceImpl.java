@@ -59,4 +59,12 @@ public class AddressServiceImpl implements IAddressService {
 
         return addressInfoDAO.addAddress(addressInfoBean) > 0;
     }
+
+    @Override
+    public AddressInfoBean getDefaultAddress(String openId) {
+        if (StringUtils.isEmpty(openId)) {
+            throw new RuntimeException("参数错误!");
+        }
+        return addressInfoDAO.getDefaultAddress(openId);
+    }
 }

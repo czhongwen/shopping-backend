@@ -66,4 +66,12 @@
         VALUES
         (#{userOpenId}, #{name}, #{phone}, #{provice}, #{city}, #{country}, #{detail}, #{detail})
     </insert>
+
+    <select id="getDefaultAddress" resultMap="addressInfo" parameterType="String">
+        SELECT
+        <include refid="select-param-column"/>
+        FROM address_info
+        WHERE u_oppenid = #{openId}
+        AND a_default = 1
+    </select>
 </mapper>
