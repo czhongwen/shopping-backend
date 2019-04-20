@@ -64,7 +64,7 @@
         INTO address_info
         (u_oppenid, a_name, a_telephone, a_provice, a_city, a_county, a_detail, a_default)
         VALUES
-        (#{userOpenId}, #{name}, #{phone}, #{provice}, #{city}, #{country}, #{detail}, #{detail})
+        (#{userOpenId}, #{name}, #{phone}, #{provice}, #{city}, #{country}, #{detail}, #{defaultStatus})
     </insert>
 
     <select id="getDefaultAddress" resultMap="addressInfo" parameterType="String">
@@ -74,4 +74,13 @@
         WHERE u_oppenid = #{openId}
         AND a_default = 1
     </select>
+
+    <update id="updateDefaultAddress" parameterType="com.zhongwen.shopping.bean.AddressInfoBean">
+        update address_info
+        <set>
+            a_default = 0
+        </set>
+        where u_oppenid = #{userOpenId}
+        AND a_default = 1
+    </update>
 </mapper>

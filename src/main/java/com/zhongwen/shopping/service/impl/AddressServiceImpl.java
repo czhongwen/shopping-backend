@@ -47,6 +47,15 @@ public class AddressServiceImpl implements IAddressService {
 
     @Override
     public Boolean updateAddress(AddressInfoBean addressInfoBean) {
+
+        if (StringUtils.isEmpty(addressInfoBean.getUserOpenId())) {
+            throw new RuntimeException("参数错误!");
+        }
+
+        if (addressInfoBean.getDefaultStatus() == 1) {
+            this.updateDefaultAddress(addressInfoBean);
+        }
+
         return addressInfoDAO.updateAddressInfo(addressInfoBean) > 0;
     }
 
@@ -55,6 +64,10 @@ public class AddressServiceImpl implements IAddressService {
 
         if (addressInfoBean.getUserOpenId() == null) {
             throw new RuntimeException("参数错误!");
+        }
+
+        if (addressInfoBean.getDefaultStatus() == 1) {
+            this.updateDefaultAddress(addressInfoBean);
         }
 
         return addressInfoDAO.addAddress(addressInfoBean) > 0;
@@ -66,5 +79,11 @@ public class AddressServiceImpl implements IAddressService {
             throw new RuntimeException("参数错误!");
         }
         return addressInfoDAO.getDefaultAddress(openId);
+    }
+
+    private boolean updateDefaultAddress(AddressInfoBean addressInfoBean) {
+
+        return addressInfoDAO.updateDefaultAddress(addressInfoBean) > 0 ;
+
     }
 }
