@@ -107,6 +107,7 @@
         p_id,p_name,p_pic1,p_price
         FROM products_info
         WHERE id_id = #{indexDetailId}
+        AND p_num > 0
         <if test="order != null and order == 'DESC'">
             ORDER BY p_price DESC
         </if>
@@ -122,6 +123,7 @@
         SELECT count(*)
         FROM products_info
         WHERE id_id = #{indexDetailId}
+        AND p_num > 0
     </select>
 
     <select id="getProductNum" resultType="Integer" parameterType="Integer">
@@ -144,5 +146,6 @@
         <foreach collection="list" item="item" open="(" separator="," close=")">
             #{item}
         </foreach>
+        AND p_num > 0
     </select>
 </mapper>
