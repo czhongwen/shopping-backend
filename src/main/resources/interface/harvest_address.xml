@@ -64,7 +64,7 @@
         INTO address_info
         (u_oppenid, a_name, a_telephone, a_provice, a_city, a_county, a_detail, a_default)
         VALUES
-        (#{userOpenId}, #{name}, #{phone}, #{provice}, #{city}, #{country}, #{detail}, #{detail})
+        (#{userOpenId}, #{name}, #{phone}, #{provice}, #{city}, #{country}, #{detail}, #{defaultStatus})
     </insert>
 
     <select id="getDefaultAddress" resultMap="addressInfo" parameterType="String">
