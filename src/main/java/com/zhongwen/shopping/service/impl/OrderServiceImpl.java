@@ -1,20 +1,22 @@
 package com.zhongwen.shopping.service.impl;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.zhongwen.shopping.bean.OrderDetailBean;
 import com.zhongwen.shopping.bean.OrderInfoBean;
 import com.zhongwen.shopping.bean.ProductInfoBean;
+import com.zhongwen.shopping.dao.ICartInfoDAO;
 import com.zhongwen.shopping.dao.IOrderDetailDAO;
 import com.zhongwen.shopping.dao.IOrderInfoDAO;
 import com.zhongwen.shopping.dao.IProductInfoDAO;
-import com.zhongwen.shopping.service.IOrderDetailService;
+import com.zhongwen.shopping.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author caozw
@@ -22,14 +24,16 @@ import java.util.Map;
  * @data 2019-03-19 00:06
  **/
 @Service
-public class OrderDetailServiceImpl implements IOrderDetailService {
+public class OrderServiceImpl implements IOrderService {
 
     @Autowired
-    IOrderDetailDAO orderDetailDAO;
+    private IOrderDetailDAO orderDetailDAO;
     @Autowired
-    IProductInfoDAO productInfoDAO;
+    private IProductInfoDAO productInfoDAO;
     @Autowired
-    IOrderInfoDAO orderInfoDAO;
+    private IOrderInfoDAO orderInfoDAO;
+    @Autowired
+    private ICartInfoDAO cartInfoDAO;
 
     @Override
     public List<ProductInfoBean> getHotProducts() {
@@ -111,5 +115,80 @@ public class OrderDetailServiceImpl implements IOrderDetailService {
         }
 
         return orderInfos;
+    }
+
+    @Override
+    public synchronized Boolean addOrders(JSONObject prams) {
+
+        String openId = prams.getString("openId");
+        Integer addressId = prams.getInteger("addressId");
+        JSONArray orders = prams.getJSONArray("list");
+        JSONArray cartIds = prams.getJSONArray("cartIds");
+
+        if (StringUtils.isEmpty(openId)) {
+            throw new RuntimeException("参数错误!");
+        }
+
+        if (addressId <= 0) {
+            throw new RuntimeException("收货地址有误!");
+        }
+
+        if (CollectionUtils.isEmpty(orders)) {
+            throw new RuntimeException("为选择任何商品!");
+        }
+
+        Map<Integer, Integer> map = new HashMap();
+        List<Integer> productIds = new ArrayList<>();
+        for (int i = 0; i < orders.size(); i++) {
+            JSONObject obj = orders.getJSONObject(i);
+            map.put(obj.getInteger("productId"), obj.getInteger("num"));
+            productIds.add(obj.getInteger("productId"));
+        }
+
+        //查询出商品数量
+        List<ProductInfoBean> productInfoBeans = productInfoDAO.getProducts(productIds);
+
+        //判断库存是否满足用户购买
+        for (ProductInfoBean productInfo: productInfoBeans) {
+            if (productInfo.getNum() < map.get(productInfo.getId())) {
+                throw new RuntimeException("对不起！您所购买的" + productInfo.getName() + "库存不足，仅剩下" + productInfo.getNum() + "件");
+            }
+        }
+
+        //先插入订单表拿到返回的orderID
+        OrderInfoBean orderInfoBean = new OrderInfoBean();
+        orderInfoBean.setAddressId(addressId);
+        orderInfoBean.setDate(new SimpleDateFormat("yyyy-MM-dd/HH:mm:ss").format(System.currentTimeMillis()));
+        orderInfoBean.setStatus("待发货");
+        orderInfoBean.setOpenId(openId);
+        orderInfoDAO.addOrderInfo(orderInfoBean);
+        Integer orderId = orderInfoBean.getId();
+
+        //插入订单详情表
+        List<OrderDetailBean> orderDetailBeans = new ArrayList<>();
+        for (Integer key: map.keySet()) {
+            OrderDetailBean orderDetailBean = new OrderDetailBean();
+            orderDetailBean.setProductNum(map.get(key));
+            orderDetailBean.setProductId(key);
+            orderDetailBean.setOrderId(orderId);
+            orderDetailBeans.add(orderDetailBean);
+        }
+        orderDetailDAO.addOrderDetail(orderDetailBeans);
+
+        //修改库存数量
+        for (ProductInfoBean productInfo: productInfoBeans) {
+            ProductInfoBean productInfoBean = new ProductInfoBean();
+            productInfoBean.setNum(productInfo.getNum() - map.get(productInfo.getId()));
+            productInfoBean.setId(productInfo.getId());
+            productInfoDAO.updateProductInfo(productInfoBean);
+        }
+
+        //删除购物车
+        List<Integer> ids = new ArrayList<>();
+        for (int i = 0; i < cartIds.size(); i++) {
+            ids.add(cartIds.getInteger(i));
+        }
+        cartInfoDAO.delCartsByIds(ids);
+        return true;
     }
 }

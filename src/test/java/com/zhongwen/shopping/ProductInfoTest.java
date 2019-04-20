@@ -44,4 +44,17 @@ public class ProductInfoTest {
         System.out.println(productInfoDAO.getProducts(integerList));
     }
 
+    @Test
+    public void getById() {
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(9);
+        List<ProductInfoBean> productInfoBeans = productInfoDAO.getProducts(integerList);
+        for (ProductInfoBean pr : productInfoBeans) {
+            ProductInfoBean productInfoBean = new ProductInfoBean();
+            productInfoBean.setNum(pr.getNum() - 2);
+            productInfoBean.setId(pr.getId());
+            productInfoDAO.updateProductInfo(productInfoBean);
+        }
+        System.out.println("修改成功！");
+    }
 }

@@ -1,7 +1,6 @@
 package com.zhongwen.shopping.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.zhongwen.shopping.service.impl.OrderDetailServiceImpl;
+import com.zhongwen.shopping.service.IOrderService;
 import com.zhongwen.shopping.util.ResultGenerator;
 import com.zhongwen.shopping.util.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +20,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
 
     @Autowired
-    OrderDetailServiceImpl orderDetailService;
+    private IOrderService orderService;
 
     @RequestMapping(value = "/getHot", method = RequestMethod.POST)
     public ResultVO getHotProducts() {
         try {
-            return ResultGenerator.successResult(orderDetailService.getHotProducts());
+            return ResultGenerator.successResult(orderService.getHotProducts());
         } catch (Exception e) {
             return ResultGenerator.failResult("请求异常:", e);
         }

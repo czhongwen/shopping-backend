@@ -46,7 +46,7 @@
         WHERE u_oppenId = #{openId}
     </update>
 
-    <insert id="addOrderInfo" parameterType="com.zhongwen.shopping.bean.OrderInfoBean">
+    <insert id="addOrderInfo" parameterType="com.zhongwen.shopping.bean.OrderInfoBean" useGeneratedKeys="true" keyProperty="id" keyColumn="o_id">
         INSERT INTO order_info
         <set>
             <include refid="set"/>

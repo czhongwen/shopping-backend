@@ -1,7 +1,7 @@
 package com.zhongwen.shopping.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zhongwen.shopping.service.IOrderDetailService;
+import com.zhongwen.shopping.service.IOrderService;
 import com.zhongwen.shopping.util.ResultGenerator;
 import com.zhongwen.shopping.util.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    private  IOrderDetailService orderDetailService;
+    private IOrderService orderService;
 
     @RequestMapping(value = "/getOrders", method = RequestMethod.POST)
     public ResultVO getOrder(@RequestBody JSONObject prams) {
-        return ResultGenerator.successResult(orderDetailService.getOrdersByOpenId(prams.getString("openId")));
+        return ResultGenerator.successResult(orderService.getOrdersByOpenId(prams.getString("openId")));
+    }
+
+    @RequestMapping(value = "/addOrders", method = RequestMethod.POST)
+    public ResultVO addOrder(@RequestBody JSONObject prams) {
+        return ResultGenerator.successResult(orderService.addOrders(prams));
     }
 
 }
