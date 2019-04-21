@@ -24,11 +24,16 @@ public class ProductTypeController {
 
     @RequestMapping(value = "/getAllType", method = RequestMethod.POST)
     public ResultVO getAllType() {
-        try {
-            return ResultGenerator.successResult(productTypeService.getAllType());
-        } catch (Exception e) {
-            return ResultGenerator.failResult("请求异常:", e);
-        }
+        return ResultGenerator.successResult(productTypeService.getAllType());
+    }
+
+    /**
+     * 获取商品一级分类
+     * @return
+     */
+    @RequestMapping(value = "/getPrimaryClassification", method = RequestMethod.GET)
+    public ResultVO getPrimaryClassification() {
+        return null;
     }
 
 }

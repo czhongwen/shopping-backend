@@ -14,4 +14,16 @@ public interface IProductTypeService  {
      * @return
      */
     JSONArray getAllType ();
+
+//    /**
+//     * 获取一级分类
+//     * @return
+//     */
+//    List<IndexTypeBean> getPrimaryClassification();
+//
+//    /**
+//     * 获取二级分类
+//     * @return
+//     */
+//    List<IndexDeailBean> getSecondaryClassification();
 }

@@ -24,25 +24,17 @@ public class ProductController {
 
     @RequestMapping(value = "/getById", method = RequestMethod.POST)
     public ResultVO getProductInfoById(@RequestBody JSONObject prams) {
-        try {
-            Integer id = prams.getInteger("id");
-            return ResultGenerator.successResult(productInfoService.getProductById(id));
-        } catch (Exception e) {
-            return ResultGenerator.failResult("请求异常:", e);
-        }
+        Integer id = prams.getInteger("id");
+        return ResultGenerator.successResult(productInfoService.getProductById(id));
     }
 
     @RequestMapping(value = "/getProductList", method = RequestMethod.POST)
     public ResultVO getProductList(@RequestBody JSONObject prams) {
-        try {
-            ProductInfoBean productInfoBean = new ProductInfoBean();
-            productInfoBean.setIndexDetailId(prams.getInteger("typeId"));
-            productInfoBean.setOffset(prams.getInteger("offset"));
-            productInfoBean.setLimit(prams.getInteger("limit"));
-            productInfoBean.setOrder(prams.getString("order"));
-            return ResultGenerator.successResult(productInfoService.getProductInfoByTypeId(productInfoBean));
-        } catch (Exception e) {
-            return ResultGenerator.failResult("请求异常:", e);
-        }
+        ProductInfoBean productInfoBean = new ProductInfoBean();
+        productInfoBean.setIndexDetailId(prams.getInteger("typeId"));
+        productInfoBean.setOffset(prams.getInteger("offset"));
+        productInfoBean.setLimit(prams.getInteger("limit"));
+        productInfoBean.setOrder(prams.getString("order"));
+        return ResultGenerator.successResult(productInfoService.getProductInfoByTypeId(productInfoBean));
     }
 }
