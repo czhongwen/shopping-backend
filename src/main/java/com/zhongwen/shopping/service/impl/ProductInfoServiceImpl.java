@@ -59,4 +59,32 @@ public class ProductInfoServiceImpl implements IProductInfoService {
         result.put("offset", productInfoBean.getOffset());
         return result;
     }
+
+    @Override
+    public JSONObject getProductFullInfoByIndexDetailId(ProductInfoBean productInfoBean) {
+        if (productInfoBean.getIndexDetailId() == null ) {
+            throw new RuntimeException("查询的商品的类型为空！");
+        }
+
+        if (productInfoBean.getOffset() < 0 ) {
+            productInfoBean.setOffset(0);
+        }
+
+        if (productInfoBean.getLimit() <= 0) {
+            productInfoBean.setLimit(8);
+        }
+        //获得商品总数
+        int count = productInfoDAO.getProductCount(productInfoBean);
+
+        List<ProductInfoBean> productInfoBeans = productInfoDAO.getProductFullInfoByIndexDetailId(productInfoBean);
+
+        if (productInfoBeans == null || productInfoBeans.size() <= 0) {
+            throw new RuntimeException("sorry,系统异常！");
+        }
+        JSONObject result = new JSONObject();
+        result.put("count", count);
+        result.put("list", productInfoBeans);
+        result.put("offset", productInfoBean.getOffset());
+        return result;
+    }
 }

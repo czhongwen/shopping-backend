@@ -37,4 +37,14 @@ public class ProductController {
         productInfoBean.setOrder(prams.getString("order"));
         return ResultGenerator.successResult(productInfoService.getProductInfoByTypeId(productInfoBean));
     }
+
+    @RequestMapping(value = "/getProductListV1", method = RequestMethod.POST)
+    public ResultVO getProductListV1(@RequestBody JSONObject prams) {
+        ProductInfoBean productInfoBean = new ProductInfoBean();
+        productInfoBean.setIndexDetailId(prams.getInteger("typeId"));
+        productInfoBean.setOffset(prams.getInteger("offset"));
+        productInfoBean.setLimit(prams.getInteger("limit"));
+        productInfoBean.setOrder(prams.getString("order"));
+        return ResultGenerator.successResult(productInfoService.getProductFullInfoByIndexDetailId(productInfoBean));
+    }
 }

@@ -148,4 +148,21 @@
         </foreach>
         AND p_num > 0
     </select>
+
+    <select id="getProductFullInfoByIndexDetailId" resultMap="productInfo" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
+        SELECT
+        <include refid="select-pram-column"/>
+        FROM products_info
+        WHERE id_id = #{indexDetailId}
+        AND p_num > 0
+        <if test="order != null and order == 'DESC'">
+            ORDER BY p_price DESC
+        </if>
+        <if test="order != null and order == 'ASC'">
+            ORDER BY p_price ASC
+        </if>
+        <if test="offset != null and limit != null">
+            LIMIT #{offset},#{limit}
+        </if>
+    </select>
 </mapper>

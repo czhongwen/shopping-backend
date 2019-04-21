@@ -22,10 +22,17 @@ public interface IProductInfoService {
     ProductInfoBean getProductById (Integer id);
 
     /**
-     * 根据typeId查询商品列表
+     * 根据typeId查询商品列表【提供给前台，后台不要调用这个接口】
      * @param productInfoBean
      * @return
      * @throws Exception
      */
     JSONObject getProductInfoByTypeId(ProductInfoBean productInfoBean);
+
+    /**
+     * 根据typeId查询商品列表[信息完整仅提供给后台]
+     * @param productInfoBean
+     * @return
+     */
+    JSONObject getProductFullInfoByIndexDetailId(ProductInfoBean productInfoBean);
 }

@@ -57,4 +57,11 @@ public class ProductInfoTest {
         }
         System.out.println("修改成功！");
     }
+
+    @Test
+    public void getFull() {
+        ProductInfoBean productInfoBean = new ProductInfoBean();
+        productInfoBean.setIndexDetailId(1);
+        System.out.println(productInfoDAO.getProductFullInfoByIndexDetailId(productInfoBean));
+    }
 }
