@@ -33,6 +33,7 @@ public class ProductInfoServiceImpl implements IProductInfoService {
     @Override
     public JSONObject getProductInfoByTypeId(ProductInfoBean productInfoBean) {
 
+        productInfoBean.setStatus(1);
         if (productInfoBean.getIndexDetailId() == null ) {
             throw new RuntimeException("查询的商品的类型为空！");
         }
@@ -75,6 +76,7 @@ public class ProductInfoServiceImpl implements IProductInfoService {
         }
 
         ProductInfoBean productInfoBean1 = new ProductInfoBean();
+        productInfoBean1.setStatus(productInfoBean.getStatus());
         productInfoBean1.setIndexDetailId(productInfoBean.getIndexDetailId());
         //获得商品总数
         int count = productInfoDAO.getProductCount(productInfoBean1);

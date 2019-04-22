@@ -45,6 +45,8 @@ public class ProductController {
         productInfoBean.setOffset(prams.getInteger("offset"));
         productInfoBean.setLimit(prams.getInteger("limit"));
         productInfoBean.setOrder(prams.getString("order"));
+        productInfoBean.setIndexDetailId(prams.getInteger("IndexDetailId"));
+        productInfoBean.setStatus(prams.getInteger("status"));
         return ResultGenerator.successResult(productInfoService.getProductFullInfoByIndexDetailId(productInfoBean));
     }
 

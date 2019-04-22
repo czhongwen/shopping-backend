@@ -4,7 +4,7 @@
 <mapper namespace="com.zhongwen.shopping.dao.IProductInfoDAO">
 
     <sql id="select-pram-column">
-        p_id,p_name,p_info,id_id,r_date,p_detail,p_index,p_pic1,
+        p_id,p_name,p_info,id_id,r_date,p_detail,p_index,p_pic1,status,
         p_pic2,p_pic3,p_pic4,p_pic5,p_color,p_tupical,p_price,p_num,p_discount
     </sql>
 
@@ -112,7 +112,9 @@
         FROM products_info
         WHERE id_id = #{indexDetailId}
         AND p_num > 0
-        AND status = 1
+        <if test="status != null">
+            AND status = #{status}
+        </if>
         <if test="order != null and order == 'DESC'">
             ORDER BY p_price DESC
         </if>
@@ -129,7 +131,9 @@
         FROM products_info
         WHERE id_id = #{indexDetailId}
         AND p_num > 0
-        AND status = 1
+        <if test="status != null">
+            AND status = #{status}
+        </if>
     </select>
 
     <select id="getProductNum" resultType="Integer" parameterType="Integer">
@@ -162,7 +166,9 @@
         FROM products_info
         WHERE id_id = #{indexDetailId}
         AND p_num > 0
-        AND status = 1
+        <if test="status != null">
+            AND status = #{status}
+        </if>
         <if test="order != null and order == 'DESC'">
             ORDER BY p_price DESC
         </if>
