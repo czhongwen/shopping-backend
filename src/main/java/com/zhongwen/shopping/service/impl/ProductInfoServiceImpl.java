@@ -24,7 +24,7 @@ public class ProductInfoServiceImpl implements IProductInfoService {
     public ProductInfoBean getProductById(Integer id) {
 
         if (id == null || id < 0) {
-            throw new RuntimeException("对不起,该商品可能卖完了！");
+            throw new RuntimeException("参数错误！");
         }
 
         return productInfoDAO.getProductInfoById(id);
@@ -73,8 +73,11 @@ public class ProductInfoServiceImpl implements IProductInfoService {
         if (productInfoBean.getLimit() <= 0) {
             productInfoBean.setLimit(8);
         }
+
+        ProductInfoBean productInfoBean1 = new ProductInfoBean();
+        productInfoBean1.setIndexDetailId(productInfoBean.getIndexDetailId());
         //获得商品总数
-        int count = productInfoDAO.getProductCount(productInfoBean);
+        int count = productInfoDAO.getProductCount(productInfoBean1);
 
         List<ProductInfoBean> productInfoBeans = productInfoDAO.getProductFullInfoByIndexDetailId(productInfoBean);
 
@@ -86,5 +89,14 @@ public class ProductInfoServiceImpl implements IProductInfoService {
         result.put("list", productInfoBeans);
         result.put("offset", productInfoBean.getOffset());
         return result;
+    }
+
+    @Override
+    public Boolean updateProduct(ProductInfoBean productInfoBean) {
+        if (productInfoBean.getId() <= 0 ) {
+            throw new RuntimeException("参数错误！");
+        }
+        productInfoDAO.updateProductInfo(productInfoBean);
+        return true;
     }
 }

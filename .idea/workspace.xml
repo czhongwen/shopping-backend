@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cb816136-4a25-4437-85dc-ce4ffda6397d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/ProductInfoBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/ProductInfoBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IProductInfoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IProductInfoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductInfoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/impl/ProductInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/impl/ProductInfoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/interface/products_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/interface/products_info.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/ProductInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/ProductInfoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhongwen/shopping/ShoppingApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhongwen/shopping/ShoppingApplication.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,7 +25,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductTypeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="162">
               <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
@@ -66,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/controller/ProductController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="260">
+              <caret line="50" column="43" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductInfoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+            <state relative-caret-position="305">
+              <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/impl/ProductInfoServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="78" column="98" selection-start-line="78" selection-start-column="98" selection-end-line="78" selection-end-column="98" />
+            <state relative-caret-position="216">
+              <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IProductInfoDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="46" column="59" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="59" />
+            <state relative-caret-position="370">
+              <caret line="53" column="23" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,20 +112,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/interface/products_info.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="140" column="51" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="51" />
+            <state relative-caret-position="1215">
+              <caret line="81" column="30" lean-forward="true" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/ShoppingApplication.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/ProductInfoBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+            <state relative-caret-position="-9">
+              <caret line="256" column="32" selection-start-line="256" selection-start-column="32" selection-end-line="256" selection-end-column="32" />
+              <folding>
+                <element signature="e#4012#4013#0" expanded="true" />
+                <element signature="e#4057#4058#0" expanded="true" />
+                <element signature="e#4093#4094#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,6 +169,7 @@
       <find>getByIds</find>
       <find>getOrderInfoList</find>
       <find>9e094b5a07624152ac70e4a06a0e844c</find>
+      <find>getProductCount</find>
     </findStrings>
     <replaceStrings>
       <replace>indextypeId</replace>
@@ -189,7 +193,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/interface/index_detail.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexDetailTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IOrderInfoDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/ProductInfoBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/controller/CartsController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/IndexTypeTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
@@ -226,11 +229,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductTypeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/ShoppingApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IProductInfoDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductInfoService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/controller/ProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/interface/products_info.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/zhongwen/shopping/ProductInfoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductInfoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/impl/ProductInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/controller/ProductController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/ProductInfoBean.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/interface/products_info.xml" />
       </list>
     </option>
   </component>
@@ -413,7 +417,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555870513030" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555948935656" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -583,7 +587,7 @@
       <workItem from="1555558950622" duration="1077000" />
       <workItem from="1555587483044" duration="11360000" />
       <workItem from="1555694831784" duration="16935000" />
-      <workItem from="1555761142536" duration="11702000" />
+      <workItem from="1555761142536" duration="15973000" />
     </task>
     <task id="LOCAL-00001" summary="构建项目">
       <created>1552790519204</created>
@@ -816,7 +820,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555865401602</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="增加查询products详情接口">
+      <created>1555870691318</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1555870691318</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -852,13 +863,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168872000" />
+    <option name="totallyTimeSpent" value="173143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="723" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21243942" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21243942" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -871,7 +882,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32861635" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.31220284" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49676898" visible="true" weight="0.27733755" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49676898" visible="true" weight="0.20919175" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -946,7 +957,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加小分类接口" />
     <MESSAGE value="增加商品接口" />
     <MESSAGE value="增加订单接口" />
     <MESSAGE value="增加订单详情接口" />
@@ -971,7 +981,8 @@
     <MESSAGE value="增加下单接口" />
     <MESSAGE value="前台只显示商品大于零的商品数量" />
     <MESSAGE value="修改接口解决跨域" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改接口解决跨域" />
+    <MESSAGE value="增加查询products详情接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加查询products详情接口" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -988,13 +999,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.0/mybatis-3.5.0.jar!/org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="231" column="12" selection-start-line="231" selection-end-line="231" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Test/map/map.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Test/Test.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/common/BasicBean.java">
@@ -1343,23 +1347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IProductInfoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="46" column="59" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductTypeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1374,10 +1361,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/dao/IProductInfoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="53" column="23" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductTypeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/interface/products_info.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="81" column="30" lean-forward="true" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/bean/ProductInfoBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="256" column="32" selection-start-line="256" selection-start-column="32" selection-end-line="256" selection-end-column="32" />
+          <folding>
+            <element signature="e#4012#4013#0" expanded="true" />
+            <element signature="e#4057#4058#0" expanded="true" />
+            <element signature="e#4093#4094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/IProductInfoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+        <state relative-caret-position="305">
+          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1386,8 +1409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/service/impl/ProductInfoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="78" column="98" selection-start-line="78" selection-start-column="98" selection-end-line="78" selection-end-column="98" />
+        <state relative-caret-position="216">
+          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1396,18 +1419,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongwen/shopping/controller/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="260">
+          <caret line="50" column="43" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/interface/products_info.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="140" column="51" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="51" />
         </state>
       </provider>
     </entry>

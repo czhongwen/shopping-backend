@@ -47,4 +47,9 @@ public class ProductController {
         productInfoBean.setOrder(prams.getString("order"));
         return ResultGenerator.successResult(productInfoService.getProductFullInfoByIndexDetailId(productInfoBean));
     }
+
+    @RequestMapping(value = "/updateProduct", method = RequestMethod.POST)
+    public ResultVO updateProduct (@RequestBody ProductInfoBean productInfoBean) {
+        return ResultGenerator.successResult(productInfoService.updateProduct(productInfoBean));
+    }
 }

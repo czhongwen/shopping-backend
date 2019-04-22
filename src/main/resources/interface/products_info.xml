@@ -26,6 +26,7 @@
         <result property="price" column="p_price" javaType="Integer"/>
         <result property="num" column="p_num" javaType="Integer"/>
         <result property="discount" column="p_discount" javaType="Integer"/>
+        <result property="status" column="status" javaType="Integer"/>
     </resultMap>
 
     <sql id="set">
@@ -77,6 +78,9 @@
         <if test="discount">
             p_discount = #{discount},
         </if>
+        <if test="status != null">
+            status = #{status}
+        </if>
     </sql>
 
     <insert id="addProductInfo" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
@@ -108,6 +112,7 @@
         FROM products_info
         WHERE id_id = #{indexDetailId}
         AND p_num > 0
+        AND status = 1
         <if test="order != null and order == 'DESC'">
             ORDER BY p_price DESC
         </if>
@@ -119,11 +124,12 @@
         </if>
     </select>
 
-    <select id="getProductCount" resultType="Integer" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
+    <select id="getProductCount" resultType="java.lang.Integer" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
         SELECT count(*)
         FROM products_info
         WHERE id_id = #{indexDetailId}
         AND p_num > 0
+        AND status = 1
     </select>
 
     <select id="getProductNum" resultType="Integer" parameterType="Integer">
@@ -147,6 +153,7 @@
             #{item}
         </foreach>
         AND p_num > 0
+        AND status = 1
     </select>
 
     <select id="getProductFullInfoByIndexDetailId" resultMap="productInfo" parameterType="com.zhongwen.shopping.bean.ProductInfoBean">
@@ -155,6 +162,7 @@
         FROM products_info
         WHERE id_id = #{indexDetailId}
         AND p_num > 0
+        AND status = 1
         <if test="order != null and order == 'DESC'">
             ORDER BY p_price DESC
         </if>

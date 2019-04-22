@@ -97,6 +97,10 @@ public class ProductInfoBean extends BasicBean {
      * 排序信息
      */
     private String order;
+    /**
+     * 商品状态
+     */
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -248,6 +252,14 @@ public class ProductInfoBean extends BasicBean {
 
     public void setOrder(String order) {
         this.order = order;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     @Override

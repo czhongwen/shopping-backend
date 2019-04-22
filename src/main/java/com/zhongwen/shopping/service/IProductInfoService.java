@@ -35,4 +35,11 @@ public interface IProductInfoService {
      * @return
      */
     JSONObject getProductFullInfoByIndexDetailId(ProductInfoBean productInfoBean);
+
+    /**
+     * 修改商品信息
+     * @param productInfoBean
+     * @return
+     */
+    Boolean updateProduct(ProductInfoBean productInfoBean);
 }
