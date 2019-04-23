@@ -152,6 +152,8 @@ public class OrderServiceImpl implements IOrderService {
         for (ProductInfoBean productInfo: productInfoBeans) {
             if (productInfo.getNum() < map.get(productInfo.getId())) {
                 throw new RuntimeException("对不起！您所购买的" + productInfo.getName() + "库存不足，仅剩下" + productInfo.getNum() + "件");
+            } if (productInfo.getStatus() == 0) {
+                throw new RuntimeException("对不起！您购买的" + productInfo.getName() + "已下架！");
             }
         }
 
