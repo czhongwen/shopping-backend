@@ -150,7 +150,7 @@
 
     <select id="getProducts" resultMap="productInfo" parameterType="List">
         SELECT
-        p_id,p_name,p_pic1,p_price,p_num,p_discount,p_info
+        p_id,p_name,p_pic1,p_price,p_num,p_discount,p_info,status
         FROM products_info
         WHERE p_id in
         <foreach collection="list" item="item" open="(" separator="," close=")">
