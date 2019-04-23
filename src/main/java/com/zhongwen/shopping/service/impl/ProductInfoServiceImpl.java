@@ -50,10 +50,6 @@ public class ProductInfoServiceImpl implements IProductInfoService {
 
         List<ProductInfoBean> productInfoBeans = productInfoDAO.getProductInfoByIndexDetailId(productInfoBean);
 
-        if (productInfoBeans == null || productInfoBeans.size() <= 0) {
-            throw new RuntimeException("sorry,系统异常！");
-        }
-
         JSONObject result = new JSONObject();
         result.put("count", count);
         result.put("list", productInfoBeans);
@@ -83,9 +79,6 @@ public class ProductInfoServiceImpl implements IProductInfoService {
 
         List<ProductInfoBean> productInfoBeans = productInfoDAO.getProductFullInfoByIndexDetailId(productInfoBean);
 
-        if (productInfoBeans == null || productInfoBeans.size() <= 0) {
-            throw new RuntimeException("sorry,系统异常！");
-        }
         JSONObject result = new JSONObject();
         result.put("count", count);
         result.put("list", productInfoBeans);
