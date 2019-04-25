@@ -24,11 +24,7 @@ public class LoginController {
 
     @RequestMapping(value = "/getOpenId", method = RequestMethod.POST)
     public ResultVO getOpenId(@RequestBody String key) {
-        try {
-            return ResultGenerator.successResult(loginService.getOpenId(key));
-        } catch (Exception e) {
-            return ResultGenerator.failResult("请求异常:",e);
-        }
+        return ResultGenerator.successResult(loginService.getOpenId(key));
     }
 
 }

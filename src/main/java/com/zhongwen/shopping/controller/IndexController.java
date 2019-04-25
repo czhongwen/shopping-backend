@@ -24,11 +24,7 @@ public class IndexController {
 
     @RequestMapping(value = "/getHot", method = RequestMethod.POST)
     public ResultVO getHotProducts() {
-        try {
-            return ResultGenerator.successResult(orderService.getHotProducts());
-        } catch (Exception e) {
-            return ResultGenerator.failResult("请求异常:", e);
-        }
+        return ResultGenerator.successResult(orderService.getHotProducts());
     }
 
 }
