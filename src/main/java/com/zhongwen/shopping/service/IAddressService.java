@@ -1,6 +1,7 @@
 package com.zhongwen.shopping.service;
 
 import com.zhongwen.shopping.bean.AddressInfoBean;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @version 1.0
  * @data 2019-04-11 23:36
  **/
+@Transactional
 public interface IAddressService {
 
     /**

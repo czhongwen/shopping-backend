@@ -2,6 +2,7 @@ package com.zhongwen.shopping.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zhongwen.shopping.bean.ProductInfoBean;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Map;
  * @version 1.0
  * @data 2019-03-24 00:37
  **/
+@Transactional
 public interface IProductInfoService {
 
     /**

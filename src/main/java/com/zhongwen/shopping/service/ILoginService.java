@@ -1,5 +1,7 @@
 package com.zhongwen.shopping.service;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Map;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Map;
  * @version 1.0
  * @data 2019-03-23 22:57
  **/
+@Transactional
 public interface ILoginService {
 
     /**

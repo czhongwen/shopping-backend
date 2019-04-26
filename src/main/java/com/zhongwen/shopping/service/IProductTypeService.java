@@ -1,12 +1,14 @@
 package com.zhongwen.shopping.service;
 
 import com.alibaba.fastjson.JSONArray;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author caozw
  * @version 1.0
  * @data 2019-03-24 10:17
  **/
+@Transactional
 public interface IProductTypeService  {
 
     /**
