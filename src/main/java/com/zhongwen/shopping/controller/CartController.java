@@ -50,4 +50,9 @@ public class CartController {
         cartInfoBean.setProductNum(prams.getInteger("num"));
         return ResultGenerator.successResult(cartService.addCart(cartInfoBean));
     }
+
+    @RequestMapping(value = "/updateNum", method = RequestMethod.POST)
+    public ResultVO updateNum(@RequestBody CartInfoBean cartInfoBean) {
+        return ResultGenerator.successResult(cartService.updateNum(cartInfoBean));
+    }
 }

@@ -138,4 +138,21 @@ public class CartServiceImpl implements ICartService {
         cartInfoDAO.addCart(cartInfoBean);
         return true;
     }
+
+    @Override
+    public Boolean updateNum(CartInfoBean cartInfoBean) {
+        if (cartInfoBean == null) {
+            throw new RuntimeException("参数有误!");
+        }
+
+        if (cartInfoBean.getCartId() <= 0) {
+            throw new RuntimeException("购物车id有误!");
+        }
+
+        if (cartInfoBean.getProductNum() <= 0) {
+            throw new RuntimeException("数量不能小于零");
+        }
+
+        return cartInfoDAO.updateCartInfo(cartInfoBean) > 0;
+    }
 }

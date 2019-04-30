@@ -3,6 +3,7 @@ package com.zhongwen.shopping;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -17,6 +18,10 @@ public class ShoppingApplication {
         System.out.println("==========项目开始启动==========");
         SpringApplication.run(ShoppingApplication.class, args);
         System.out.println("==========项目启动成功==========");
+    }
+    @Bean
+    public TomcatServletWebServerFactory servletContainer(){
+        return new TomcatServletWebServerFactory(80) ;
     }
 
     //spring boot 跨域问题

@@ -60,4 +60,11 @@ public interface ICartService {
      * @return
      */
     Boolean addCart(CartInfoBean cartInfoBean);
+
+    /**
+     * 修改购物车数量
+     * @param cartInfoBean
+     * @return
+     */
+    Boolean updateNum(CartInfoBean cartInfoBean);
 }
