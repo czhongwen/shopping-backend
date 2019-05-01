@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 8081
   ssl:
     key-store: classpath:czhongwen.xyz.jks
     key-store-password: e39e34jw3v0s09c

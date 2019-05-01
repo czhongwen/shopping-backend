@@ -27,6 +27,9 @@ public class IndexDeailBean {
      */
     private String imageUrl;
 
+    public IndexDeailBean() {
+    }
+
     public Integer getId() {
         return id;
     }

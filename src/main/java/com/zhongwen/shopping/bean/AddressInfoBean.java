@@ -124,6 +124,9 @@ public class AddressInfoBean {
         this.defaultStatus = defaultStatus;
     }
 
+    public AddressInfoBean() {
+    }
+
     @Override
     public String toString() {
         return "AddressInfoBean{" +

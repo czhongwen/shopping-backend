@@ -32,6 +32,9 @@ public class OrderInfoBean {
      */
     private String openId;
 
+    public OrderInfoBean() {
+    }
+
     public Integer getId() {
         return id;
     }

@@ -22,6 +22,9 @@ public class IndexTypeBean {
      */
     private String name;
 
+    public IndexTypeBean() {
+    }
+
     public Integer getId() {
         return id;
     }

@@ -22,9 +22,14 @@ public class CartInfoBean {
      */
     private String openId;
 
+    public CartInfoBean() {
+    }
+
     /**
      * 商品数量
      */
+
+
     private Integer productNum;
 
     public Integer getCartId() {

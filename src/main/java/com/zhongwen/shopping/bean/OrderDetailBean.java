@@ -17,6 +17,9 @@ public class OrderDetailBean {
      */
     private Integer productId;
 
+    public OrderDetailBean() {
+    }
+
     /**
      * 订单数量
      */

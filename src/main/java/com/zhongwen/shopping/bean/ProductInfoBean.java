@@ -102,6 +102,9 @@ public class ProductInfoBean extends BasicBean {
      */
     private Integer status;
 
+    public ProductInfoBean() {
+    }
+
     public Integer getId() {
         return id;
     }
