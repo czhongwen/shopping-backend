@@ -206,11 +206,11 @@ public class OrderServiceImpl implements IOrderService {
 
     private String getAccessToken(){
         String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxcbe2035fdc5f64a7&secret=5c9d17e13b98c074e9bf4ae474676dfe";
-        MultiValueMap<String, String> prams = new LinkedMultiValueMap<>();
-
-//        prams.add("grant_type", "client_credential");
-//        prams.add("appid", "wxcbe2035fdc5f64a7");
-//        prams.add("secret","5c9d17e13b98c074e9bf4ae474676dfe");
+       // MultiValueMap<String, Object> prams = new LinkedMultiValueMap<>();
+        Map<String, Object> prams = new HashMap<>();
+        prams.put("grant_type", "client_credential");
+        prams.put("appid", "wxcbe2035fdc5f64a7");
+        prams.put("secret","5c9d17e13b98c074e9bf4ae474676dfe");
 
         String res = httpClient.client(url, HttpMethod.GET, prams);
 
@@ -222,23 +222,36 @@ public class OrderServiceImpl implements IOrderService {
     }
 
     public void sendTemplatePaySuccess(String openId, String formId,Integer orderId){
+        System.out.println(openId);
+        String token = this.getAccessToken();
+        System.out.println(token);
+        String url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=" + token;
 
-        String url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send";
-
-        MultiValueMap<String, String> prams = new LinkedMultiValueMap<>();
-        prams.add("touser", openId);
-        prams.add("template_id", "vdknVhzNHj5n0esLDs_EzAw3H2xnBkT_X7jcFJmYgBM");
-        prams.add("form_id", formId);
-        prams.add("page", "myOrders");
-        prams.add("access_token", this.getAccessToken());
+        //MultiValueMap<String, Object> prams = new LinkedMultiValueMap<>();
+        Map<String, Object> prams = new HashMap<>();
+        prams.put("touser", openId );
+        prams.put("template_id", "vdknVhzNHj5n0esLDs_EzAw3H2xnBkT_X7jcFJmYgBM");
+        prams.put("form_id", formId );
+        prams.put("page", "myOrders");
 
         JSONObject obj = new JSONObject();
+
         JSONObject obj1 = new JSONObject();
         obj1.put("value", orderId);
-        obj.put("keyword1", obj);
+        obj.put("keyword1", obj1);
 
-        prams.add("data", obj.toString());
+        JSONObject obj2 = new JSONObject();
+        obj2.put("value", new SimpleDateFormat("yyyy年mm月dd日 HH时mm分ss秒").format(System.currentTimeMillis()));
+        obj.put("keyword2", obj2);
 
+        JSONObject obj3 = new JSONObject();
+        obj3.put("value", "1000元");
+        obj.put("keyword3", obj3);
+
+        prams.put("data", obj);
+
+        System.out.println(prams.get("touser"));
+        System.out.println(prams.get("data").toString());
         String rs = httpClient.client(url, HttpMethod.POST, prams);
 
         System.out.println(rs);
