@@ -44,7 +44,7 @@ public class LoginServiceImpl implements ILoginService {
 
     private String[] load(String key) throws Exception
     {
-        URL restURL = new URL("https://api.weixin.qq.com/sns/jscode2session?appid=wxcbe2035fdc5f64a7&secret=b9b3d9ed83141616af06f3c8b5a25c6e&grant_type=authorization_code&js_code=" + key);
+        URL restURL = new URL("https://api.weixin.qq.com/sns/jscode2session?appid=wxcbe2035fdc5f64a7&secret=5c9d17e13b98c074e9bf4ae474676dfe&grant_type=authorization_code&js_code=" + key);
         HttpURLConnection conn = (HttpURLConnection) restURL.openConnection();
         conn.setRequestMethod("GET");
         conn.setDoOutput(true);

@@ -9,10 +9,14 @@ import com.zhongwen.shopping.dao.ICartInfoDAO;
 import com.zhongwen.shopping.dao.IOrderDetailDAO;
 import com.zhongwen.shopping.dao.IOrderInfoDAO;
 import com.zhongwen.shopping.dao.IProductInfoDAO;
+import com.zhongwen.shopping.service.HttpClient;
 import com.zhongwen.shopping.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 
 import java.text.SimpleDateFormat;
@@ -34,6 +38,8 @@ public class OrderServiceImpl implements IOrderService {
     private IOrderInfoDAO orderInfoDAO;
     @Autowired
     private ICartInfoDAO cartInfoDAO;
+    @Autowired
+    private HttpClient httpClient;
 
     @Override
     public List<ProductInfoBean> getHotProducts() {
@@ -124,6 +130,9 @@ public class OrderServiceImpl implements IOrderService {
         Integer addressId = prams.getInteger("addressId");
         JSONArray orders = prams.getJSONArray("list");
         JSONArray cartIds = prams.getJSONArray("cartIds");
+        String formId = prams.getString("formId");
+
+        System.out.println(formId);
 
         if (StringUtils.isEmpty(openId)) {
             throw new RuntimeException("参数错误!");
@@ -191,6 +200,47 @@ public class OrderServiceImpl implements IOrderService {
             ids.add(cartIds.getInteger(i));
         }
         cartInfoDAO.delCartsByIds(ids);
+        this.sendTemplatePaySuccess(openId,formId,orderId);
         return true;
+    }
+
+    private String getAccessToken(){
+        String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxcbe2035fdc5f64a7&secret=5c9d17e13b98c074e9bf4ae474676dfe";
+        MultiValueMap<String, String> prams = new LinkedMultiValueMap<>();
+
+//        prams.add("grant_type", "client_credential");
+//        prams.add("appid", "wxcbe2035fdc5f64a7");
+//        prams.add("secret","5c9d17e13b98c074e9bf4ae474676dfe");
+
+        String res = httpClient.client(url, HttpMethod.GET, prams);
+
+        System.out.println(res);
+
+        res = res.substring(res.indexOf('{'), res.indexOf('}')+1);
+        JSONObject obj = JSONObject.parseObject(res);
+        return obj.getString("access_token");
+    }
+
+    public void sendTemplatePaySuccess(String openId, String formId,Integer orderId){
+
+        String url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send";
+
+        MultiValueMap<String, String> prams = new LinkedMultiValueMap<>();
+        prams.add("touser", openId);
+        prams.add("template_id", "vdknVhzNHj5n0esLDs_EzAw3H2xnBkT_X7jcFJmYgBM");
+        prams.add("form_id", formId);
+        prams.add("page", "myOrders");
+        prams.add("access_token", this.getAccessToken());
+
+        JSONObject obj = new JSONObject();
+        JSONObject obj1 = new JSONObject();
+        obj1.put("value", orderId);
+        obj.put("keyword1", obj);
+
+        prams.add("data", obj.toString());
+
+        String rs = httpClient.client(url, HttpMethod.POST, prams);
+
+        System.out.println(rs);
     }
 }
