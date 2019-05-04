@@ -206,7 +206,6 @@ public class OrderServiceImpl implements IOrderService {
 
     private String getAccessToken(){
         String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxcbe2035fdc5f64a7&secret=5c9d17e13b98c074e9bf4ae474676dfe";
-       // MultiValueMap<String, Object> prams = new LinkedMultiValueMap<>();
         Map<String, Object> prams = new HashMap<>();
         prams.put("grant_type", "client_credential");
         prams.put("appid", "wxcbe2035fdc5f64a7");
@@ -214,20 +213,15 @@ public class OrderServiceImpl implements IOrderService {
 
         String res = httpClient.client(url, HttpMethod.GET, prams);
 
-        System.out.println(res);
-
         res = res.substring(res.indexOf('{'), res.indexOf('}')+1);
         JSONObject obj = JSONObject.parseObject(res);
         return obj.getString("access_token");
     }
 
     public void sendTemplatePaySuccess(String openId, String formId,Integer orderId){
-        System.out.println(openId);
         String token = this.getAccessToken();
-        System.out.println(token);
         String url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=" + token;
 
-        //MultiValueMap<String, Object> prams = new LinkedMultiValueMap<>();
         Map<String, Object> prams = new HashMap<>();
         prams.put("touser", openId );
         prams.put("template_id", "vdknVhzNHj5n0esLDs_EzAw3H2xnBkT_X7jcFJmYgBM");
@@ -250,10 +244,7 @@ public class OrderServiceImpl implements IOrderService {
 
         prams.put("data", obj);
 
-        System.out.println(prams.get("touser"));
-        System.out.println(prams.get("data").toString());
         String rs = httpClient.client(url, HttpMethod.POST, prams);
 
-        System.out.println(rs);
     }
 }
