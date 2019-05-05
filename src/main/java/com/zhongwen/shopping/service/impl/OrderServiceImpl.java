@@ -15,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 
 import java.text.SimpleDateFormat;
@@ -132,7 +130,6 @@ public class OrderServiceImpl implements IOrderService {
         JSONArray cartIds = prams.getJSONArray("cartIds");
         String formId = prams.getString("formId");
 
-        System.out.println(formId);
 
         if (StringUtils.isEmpty(openId)) {
             throw new RuntimeException("参数错误!");
@@ -143,7 +140,7 @@ public class OrderServiceImpl implements IOrderService {
         }
 
         if (CollectionUtils.isEmpty(orders)) {
-            throw new RuntimeException("为选择任何商品!");
+            throw new RuntimeException("未选择任何商品!");
         }
 
         Map<Integer, Integer> map = new HashMap();
@@ -200,6 +197,7 @@ public class OrderServiceImpl implements IOrderService {
             ids.add(cartIds.getInteger(i));
         }
         cartInfoDAO.delCartsByIds(ids);
+        //发送模版信息
         this.sendTemplatePaySuccess(openId,formId,orderId);
         return true;
     }
