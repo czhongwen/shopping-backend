@@ -2,6 +2,8 @@ package com.zhongwen.shopping.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 import com.zhongwen.shopping.bean.OrderDetailBean;
 import com.zhongwen.shopping.bean.OrderInfoBean;
 import com.zhongwen.shopping.bean.ProductInfoBean;
@@ -82,10 +84,10 @@ public class OrderServiceImpl implements IOrderService {
         }
 
         List<Integer> productIds = new ArrayList<>();
-        Map orderDetailMap = new HashMap();
+        Multimap orderDetailMap = ArrayListMultimap.create();
         for (OrderDetailBean orderDetailBean : orderDetailBeans) {
             productIds.add(orderDetailBean.getProductId());
-            orderDetailMap.put(orderDetailBean.getOrderId(), orderDetailBean.getProductNum());
+            orderDetailMap.put(orderDetailBean.getOrderId(), "" + orderDetailBean.getProductId() + "+" + orderDetailBean.getProductNum());
             orderDetailMap.put(orderDetailBean.getProductId(), orderDetailBean.getOrderId());
         }
 
@@ -95,27 +97,29 @@ public class OrderServiceImpl implements IOrderService {
             return new ArrayList<>();
         }
 
-        List<Map> orderDetails = new ArrayList<>();
+
+        Multimap<String, Map> orderDetails = ArrayListMultimap.create();
         for (ProductInfoBean productInfoBean : productInfoBeans) {
-            Map temp = new HashMap();
-            temp.put("image", productInfoBean.getImage1());
-            temp.put("name", productInfoBean.getName());
-            temp.put("info", productInfoBean.getInfo());
-            temp.put("num", orderDetailMap.get(orderDetailMap.get(productInfoBean.getId())));
-            temp.put("orderId", orderDetailMap.get(productInfoBean.getId()));
-            temp.put("detail", productInfoBean.getDetail());
-            orderDetails.add(temp);
+
+            for (Object orderId : orderDetailMap.get(productInfoBean.getId())){
+                Map temp = new HashMap();
+                temp.put("image", productInfoBean.getImage1());
+                temp.put("name", productInfoBean.getName());
+                temp.put("info", productInfoBean.getInfo());
+                String productId = productInfoBean.getId().toString();
+                for (Object num : orderDetailMap.get(orderId)) {
+                    if (num.toString().indexOf(productId) != -1) {
+                        temp.put("num", num.toString().substring(num.toString().indexOf("+")+1));
+                        break;
+                    }
+                }
+                temp.put("detail", productInfoBean.getDetail());
+                orderDetails.put(orderId.toString(),temp);
+            }
         }
 
         for (Map orderInfoMap : orderInfos) {
-            for (Map orderDetailMaps : orderDetails) {
-                if ( orderInfoMap.get("orderId").equals(orderDetailMaps.get("orderId")) ) {
-                    List<Map> map = (ArrayList<Map>)orderInfoMap.get("list");
-                    orderDetailMaps.put("status", orderInfoMap.get("status"));
-                    map.add(orderDetailMaps);
-                    orderInfoMap.put("list", map);
-                }
-            }
+            orderInfoMap.put("list", orderDetails.get(orderInfoMap.get("orderId").toString()));
         }
 
         return orderInfos;
