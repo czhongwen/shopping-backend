@@ -48,4 +48,11 @@ public interface IAddressInfoDAO {
      * @return
      */
     Integer updateDefaultAddress(AddressInfoBean addressInfoBean);
+
+    /**
+     * 根据id获得地址
+     * @param id
+     * @return
+     */
+    AddressInfoBean getById(Integer id);
 }

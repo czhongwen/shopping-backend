@@ -4,14 +4,13 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.zhongwen.shopping.bean.AddressInfoBean;
 import com.zhongwen.shopping.bean.OrderDetailBean;
 import com.zhongwen.shopping.bean.OrderInfoBean;
 import com.zhongwen.shopping.bean.ProductInfoBean;
-import com.zhongwen.shopping.dao.ICartInfoDAO;
-import com.zhongwen.shopping.dao.IOrderDetailDAO;
-import com.zhongwen.shopping.dao.IOrderInfoDAO;
-import com.zhongwen.shopping.dao.IProductInfoDAO;
+import com.zhongwen.shopping.dao.*;
 import com.zhongwen.shopping.service.HttpClient;
+import com.zhongwen.shopping.service.IAddressService;
 import com.zhongwen.shopping.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -40,6 +39,8 @@ public class OrderServiceImpl implements IOrderService {
     private ICartInfoDAO cartInfoDAO;
     @Autowired
     private HttpClient httpClient;
+    @Autowired
+    private IAddressInfoDAO addressInfoDAO;
 
     @Override
     public List<ProductInfoBean> getHotProducts() {
@@ -202,7 +203,7 @@ public class OrderServiceImpl implements IOrderService {
         }
         cartInfoDAO.delCartsByIds(ids);
         //发送模版信息
-        this.sendTemplatePaySuccess(openId,formId,orderId);
+        this.sendTemplatePaySuccess(openId,formId,orderId, addressId);
         return true;
     }
 
@@ -220,7 +221,7 @@ public class OrderServiceImpl implements IOrderService {
         return obj.getString("access_token");
     }
 
-    public void sendTemplatePaySuccess(String openId, String formId,Integer orderId){
+    public void sendTemplatePaySuccess(String openId, String formId,Integer orderId, Integer addressId){
         String token = this.getAccessToken();
         String url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=" + token;
 
@@ -237,12 +238,26 @@ public class OrderServiceImpl implements IOrderService {
         obj.put("keyword1", obj1);
 
         JSONObject obj2 = new JSONObject();
-        obj2.put("value", new SimpleDateFormat("yyyy年mm月dd日 HH时mm分ss秒").format(System.currentTimeMillis()));
+        obj2.put("value", new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒").format(System.currentTimeMillis()));
         obj.put("keyword2", obj2);
 
         JSONObject obj3 = new JSONObject();
         obj3.put("value", "1000元");
         obj.put("keyword3", obj3);
+
+        AddressInfoBean addressInfoBean = addressInfoDAO.getById(addressId);
+
+        JSONObject obj4 = new JSONObject();
+        obj4.put("value", addressInfoBean.getName());
+        obj.put("keyword4", obj4);
+
+        JSONObject obj5 = new JSONObject();
+        obj4.put("value", addressInfoBean.getProvice() + addressInfoBean.getCity() + addressInfoBean.getCountry() + addressInfoBean.getDetail());
+        obj.put("keyword5", obj5);
+
+        JSONObject obj6 = new JSONObject();
+        obj4.put("value", "");
+        obj.put("keyword6", obj6);
 
         prams.put("data", obj);
 
