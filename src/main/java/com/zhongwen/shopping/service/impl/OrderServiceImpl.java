@@ -10,7 +10,6 @@ import com.zhongwen.shopping.bean.OrderInfoBean;
 import com.zhongwen.shopping.bean.ProductInfoBean;
 import com.zhongwen.shopping.dao.*;
 import com.zhongwen.shopping.service.HttpClient;
-import com.zhongwen.shopping.service.IAddressService;
 import com.zhongwen.shopping.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;

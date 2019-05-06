@@ -38,7 +38,7 @@ public class LoginServiceImpl implements ILoginService {
             map.put("openid", strings[1]);
             return map;
         } catch (Exception e) {
-            throw new RuntimeException("服务器可能挂掉了");
+            throw new RuntimeException("sorry,未获取到OpenId");
         }
     }
 

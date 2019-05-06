@@ -83,4 +83,11 @@
         where u_oppenid = #{userOpenId}
         AND a_default = 1
     </update>
+    
+    <select id="getById" parameterType="Integer" resultMap="addressInfo">
+        SELECT
+        <include refid="select-param-column"/>
+        FROM address_info
+        WHERE a_id = #{id}
+    </select>
 </mapper>
