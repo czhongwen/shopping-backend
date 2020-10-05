@@ -2,7 +2,7 @@ server:
   port: 80
   ssl:
     key-store: classpath:www.czhongwen.xyz.jks
-    key-store-password: czhongwen0712
+    key-store-password: xxxxxxx //密码
     key-store-type: JKS
 
 spring:
