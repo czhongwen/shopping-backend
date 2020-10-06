@@ -6,7 +6,7 @@
     ① Spring Boot 2.1.3
     ② Mybatis 
     ③ MySQL
-    ④ 微信小程序
+    ④ 微信小程序(地址连接 https://github.com/czhongwen/wxshopping-protal)
     
 ### 2.项目表设计
 
