@@ -3,11 +3,11 @@
     有间杂货铺是一个基于Spring Boot搭建的简易微信小程序应用，目前已完成基本的查询、浏览、聊天、分享、下单(未接入支付功能)、微信通知等基础功能。
     
 ### 1.项目使用框架 
-    ① Spring Boot 2.1.3
-    ② Mybatis 
-    ③ MySQL
-    ④ 微信小程序(地址连接 https://github.com/czhongwen/wxshopping-protal)
-    
+- Spring Boot 2.1.3
+- Mybatis 
+- MySQL
+- [微信小程序前端](https://github.com/czhongwen/wxshopping-protal)
+
 ### 2.项目表设计
 
 ![表设计](https://github.com/czhongwen/shopping-backend/blob/master/src/main/resources/static/images/WX20201006-104403%402x.png)
